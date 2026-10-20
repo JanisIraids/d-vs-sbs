@@ -1,0 +1,644 @@
+{
+  "scope": {
+    "domain": "total Boolean functions",
+    "max_vars": 4,
+    "function_count": 65814,
+    "table_encoding": "bit x is f(x); x=sum_i x_i*2**i",
+    "arithmetic": "exact integers",
+    "enumeration": "all tables, increasing arity then integer table",
+    "conjecture_counterexamples": 0,
+    "status": "finite exhaustive evidence, not a general proof"
+  },
+  "candidates": {
+    "bs_sum": {
+      "by_arity": [
+        {
+          "n": 0,
+          "functions": 2,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 1,
+          "functions": 4,
+          "budget_failures": 2,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 2,
+          "functions": 16,
+          "budget_failures": 4,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 3,
+          "functions": 256,
+          "budget_failures": 6,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 4,
+          "functions": 65536,
+          "budget_failures": 8,
+          "progress_failures": 96,
+          "depth_exceeds_potential": 0
+        }
+      ],
+      "first_budget_failure": {
+        "n": 1,
+        "table": "0x1",
+        "metrics": {
+          "s0": 1,
+          "s1": 1,
+          "bs0": 1,
+          "bs1": 1,
+          "c0": 1,
+          "c1": 1,
+          "d": 1,
+          "s": 1,
+          "bs": 1,
+          "c": 1
+        },
+        "potential": 2,
+        "budget": 1,
+        "best_decrease": 2,
+        "queries": [
+          {
+            "coordinate": 0,
+            "child_potentials": [
+              0,
+              0
+            ],
+            "adversarial_answer": 1
+          }
+        ]
+      },
+      "first_progress_failure": {
+        "n": 4,
+        "table": "0x357",
+        "metrics": {
+          "s0": 2,
+          "s1": 2,
+          "bs0": 2,
+          "bs1": 2,
+          "c0": 2,
+          "c1": 2,
+          "d": 4,
+          "s": 2,
+          "bs": 2,
+          "c": 2
+        },
+        "potential": 4,
+        "budget": 4,
+        "best_decrease": 0,
+        "queries": [
+          {
+            "coordinate": 0,
+            "child_potentials": [
+              4,
+              3
+            ],
+            "adversarial_answer": 0
+          },
+          {
+            "coordinate": 1,
+            "child_potentials": [
+              4,
+              3
+            ],
+            "adversarial_answer": 0
+          },
+          {
+            "coordinate": 2,
+            "child_potentials": [
+              4,
+              3
+            ],
+            "adversarial_answer": 0
+          },
+          {
+            "coordinate": 3,
+            "child_potentials": [
+              4,
+              3
+            ],
+            "adversarial_answer": 0
+          }
+        ]
+      },
+      "first_depth_exceeds_potential": null
+    },
+    "bs": {
+      "by_arity": [
+        {
+          "n": 0,
+          "functions": 2,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 1,
+          "functions": 4,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 2,
+          "functions": 16,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 3,
+          "functions": 256,
+          "budget_failures": 0,
+          "progress_failures": 56,
+          "depth_exceeds_potential": 56
+        },
+        {
+          "n": 4,
+          "functions": 65536,
+          "budget_failures": 0,
+          "progress_failures": 1184,
+          "depth_exceeds_potential": 21040
+        }
+      ],
+      "first_budget_failure": null,
+      "first_progress_failure": {
+        "n": 3,
+        "table": "0x7",
+        "metrics": {
+          "s0": 2,
+          "s1": 2,
+          "bs0": 2,
+          "bs1": 2,
+          "c0": 2,
+          "c1": 2,
+          "d": 3,
+          "s": 2,
+          "bs": 2,
+          "c": 2
+        },
+        "potential": 2,
+        "budget": 4,
+        "best_decrease": 0,
+        "queries": [
+          {
+            "coordinate": 0,
+            "child_potentials": [
+              1,
+              2
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 1,
+            "child_potentials": [
+              1,
+              2
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 2,
+            "child_potentials": [
+              2,
+              0
+            ],
+            "adversarial_answer": 0
+          }
+        ]
+      },
+      "first_depth_exceeds_potential": {
+        "n": 3,
+        "table": "0x7",
+        "metrics": {
+          "s0": 2,
+          "s1": 2,
+          "bs0": 2,
+          "bs1": 2,
+          "c0": 2,
+          "c1": 2,
+          "d": 3,
+          "s": 2,
+          "bs": 2,
+          "c": 2
+        },
+        "potential": 2,
+        "budget": 4,
+        "best_decrease": 0,
+        "queries": [
+          {
+            "coordinate": 0,
+            "child_potentials": [
+              1,
+              2
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 1,
+            "child_potentials": [
+              1,
+              2
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 2,
+            "child_potentials": [
+              2,
+              0
+            ],
+            "adversarial_answer": 0
+          }
+        ]
+      }
+    },
+    "bs_product": {
+      "by_arity": [
+        {
+          "n": 0,
+          "functions": 2,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 1,
+          "functions": 4,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 2,
+          "functions": 16,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 3,
+          "functions": 256,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 4,
+          "functions": 65536,
+          "budget_failures": 24,
+          "progress_failures": 96,
+          "depth_exceeds_potential": 0
+        }
+      ],
+      "first_budget_failure": {
+        "n": 4,
+        "table": "0x1bd8",
+        "metrics": {
+          "s0": 2,
+          "s1": 2,
+          "bs0": 3,
+          "bs1": 3,
+          "c0": 3,
+          "c1": 3,
+          "d": 3,
+          "s": 2,
+          "bs": 3,
+          "c": 3
+        },
+        "potential": 9,
+        "budget": 6,
+        "best_decrease": 5,
+        "queries": [
+          {
+            "coordinate": 0,
+            "child_potentials": [
+              4,
+              4
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 1,
+            "child_potentials": [
+              4,
+              4
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 2,
+            "child_potentials": [
+              4,
+              4
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 3,
+            "child_potentials": [
+              4,
+              4
+            ],
+            "adversarial_answer": 1
+          }
+        ]
+      },
+      "first_progress_failure": {
+        "n": 4,
+        "table": "0x357",
+        "metrics": {
+          "s0": 2,
+          "s1": 2,
+          "bs0": 2,
+          "bs1": 2,
+          "c0": 2,
+          "c1": 2,
+          "d": 4,
+          "s": 2,
+          "bs": 2,
+          "c": 2
+        },
+        "potential": 4,
+        "budget": 4,
+        "best_decrease": 0,
+        "queries": [
+          {
+            "coordinate": 0,
+            "child_potentials": [
+              4,
+              2
+            ],
+            "adversarial_answer": 0
+          },
+          {
+            "coordinate": 1,
+            "child_potentials": [
+              4,
+              2
+            ],
+            "adversarial_answer": 0
+          },
+          {
+            "coordinate": 2,
+            "child_potentials": [
+              4,
+              2
+            ],
+            "adversarial_answer": 0
+          },
+          {
+            "coordinate": 3,
+            "child_potentials": [
+              4,
+              2
+            ],
+            "adversarial_answer": 0
+          }
+        ]
+      },
+      "first_depth_exceeds_potential": null
+    },
+    "s_bs": {
+      "by_arity": [
+        {
+          "n": 0,
+          "functions": 2,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 1,
+          "functions": 4,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 2,
+          "functions": 16,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 3,
+          "functions": 256,
+          "budget_failures": 0,
+          "progress_failures": 56,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 4,
+          "functions": 65536,
+          "budget_failures": 0,
+          "progress_failures": 1184,
+          "depth_exceeds_potential": 0
+        }
+      ],
+      "first_budget_failure": null,
+      "first_progress_failure": {
+        "n": 3,
+        "table": "0x7",
+        "metrics": {
+          "s0": 2,
+          "s1": 2,
+          "bs0": 2,
+          "bs1": 2,
+          "c0": 2,
+          "c1": 2,
+          "d": 3,
+          "s": 2,
+          "bs": 2,
+          "c": 2
+        },
+        "potential": 4,
+        "budget": 4,
+        "best_decrease": 0,
+        "queries": [
+          {
+            "coordinate": 0,
+            "child_potentials": [
+              1,
+              4
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 1,
+            "child_potentials": [
+              1,
+              4
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 2,
+            "child_potentials": [
+              4,
+              0
+            ],
+            "adversarial_answer": 0
+          }
+        ]
+      },
+      "first_depth_exceeds_potential": null
+    },
+    "c_product": {
+      "by_arity": [
+        {
+          "n": 0,
+          "functions": 2,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 1,
+          "functions": 4,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 2,
+          "functions": 16,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 3,
+          "functions": 256,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 4,
+          "functions": 65536,
+          "budget_failures": 24,
+          "progress_failures": 96,
+          "depth_exceeds_potential": 0
+        }
+      ],
+      "first_budget_failure": {
+        "n": 4,
+        "table": "0x1bd8",
+        "metrics": {
+          "s0": 2,
+          "s1": 2,
+          "bs0": 3,
+          "bs1": 3,
+          "c0": 3,
+          "c1": 3,
+          "d": 3,
+          "s": 2,
+          "bs": 3,
+          "c": 3
+        },
+        "potential": 9,
+        "budget": 6,
+        "best_decrease": 5,
+        "queries": [
+          {
+            "coordinate": 0,
+            "child_potentials": [
+              4,
+              4
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 1,
+            "child_potentials": [
+              4,
+              4
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 2,
+            "child_potentials": [
+              4,
+              4
+            ],
+            "adversarial_answer": 1
+          },
+          {
+            "coordinate": 3,
+            "child_potentials": [
+              4,
+              4
+            ],
+            "adversarial_answer": 1
+          }
+        ]
+      },
+      "first_progress_failure": {
+        "n": 4,
+        "table": "0x357",
+        "metrics": {
+          "s0": 2,
+          "s1": 2,
+          "bs0": 2,
+          "bs1": 2,
+          "c0": 2,
+          "c1": 2,
+          "d": 4,
+          "s": 2,
+          "bs": 2,
+          "c": 2
+        },
+        "potential": 4,
+        "budget": 4,
+        "best_decrease": 0,
+        "queries": [
+          {
+            "coordinate": 0,
+            "child_potentials": [
+              4,
+              2
+            ],
+            "adversarial_answer": 0
+          },
+          {
+            "coordinate": 1,
+            "child_potentials": [
+              4,
+              2
+            ],
+            "adversarial_answer": 0
+          },
+          {
+            "coordinate": 2,
+            "child_potentials": [
+              4,
+              2
+            ],
+            "adversarial_answer": 0
+          },
+          {
+            "coordinate": 3,
+            "child_potentials": [
+              4,
+              2
+            ],
+            "adversarial_answer": 0
+          }
+        ]
+      },
+      "first_depth_exceeds_potential": null
+    }
+  }
+}
