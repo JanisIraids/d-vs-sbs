@@ -41,7 +41,10 @@ proof of [S01, Lemma 5.2](https://arxiv.org/pdf/quant-ph/9802049v3#page=7);
 the refined formula is not its named statement.
 
 **Use:** an individual certificate fits the desired budget. Paying for repeated
-certificates still requires an additional argument.
+certificates still requires an additional argument. Even eliminating one block
+from every maximum family at every input can require more than $`s(f)`$
+adaptive queries; [R04](round-4.md) proves an exact disjoint AND–OR obstruction
+and explains the known-input versus uniform-algorithm distinction.
 
 ### L03 — Certificate-query algorithms
 

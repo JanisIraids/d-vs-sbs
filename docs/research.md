@@ -104,6 +104,7 @@ B01, F01, and F02 above are analytical proofs.
 | [R01](round-1.md) | Count prime-certificate literals instead of maxima | Progress proved; parity gives unbounded budget excess |
 | [R02](round-2.md) | Count each relevant coordinate once | Progress proved; addressing gives unbounded budget excess |
 | [R03](round-3.md) | Query for guaranteed relevance loss, then count that algorithm's depth | Progress proved; two independent selectors defeat the fixed tie rule |
+| [R04](round-4.md) | Eliminate a block from every maximum family at every input within $`s`$ adaptive queries | Refuted: exact cost $`m+k-1>s`$ on disjoint AND–OR |
 
 Each round states its exact definition, an analytical failure mechanism, finite
 checks, and reproduction commands. The initial baseline contains 65,814
@@ -122,3 +123,18 @@ recognizing relevance eliminated by several answers together. A new scalar
 combination of the six maxima is already excluded by F01. Changing the greedy
 tie rule alone requires fresh evaluation; the R03 proof refutes only the
 stated rule, not all relevance-based algorithms.
+
+## Block-elimination proposal
+
+**F03: simultaneous local progress is too costly (proved).** The proposed
+$`s`$-query batch lowering local block sensitivity at every input already
+fails on $`F_{2,2}`$: $`s=2`$ but three queries are necessary, even adaptively.
+[R04](round-4.md) proves the exact cost $`m+k-1`$ for $`F_{m,k}`$.
+For a known input, querying any minimal sensitive block does suffice within
+$`s`$; the failure concerns one algorithm for every unknown input.
+
+**PS03: amortize unequal batch costs.** On $`F_{t,t}`$, successive batches
+of costs at most $`2t-1,2t-3,\ldots,1`$ achieve the desired elimination and
+total exactly $`t^2=s\,bs`$ in the worst case. Thus this stronger batch
+lemma is false on a family satisfying the target with equality.
+A general account paying actual batch costs remains open.

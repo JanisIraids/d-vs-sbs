@@ -1,0 +1,223 @@
+{
+  "and_or_examples": [
+    {
+      "computed_global_drop_depth": 3,
+      "computed_metrics": {
+        "bs": 2,
+        "bs0": 2,
+        "bs1": 2,
+        "c": 2,
+        "c0": 2,
+        "c1": 2,
+        "d": 4,
+        "s": 2,
+        "s0": 2,
+        "s1": 2
+      },
+      "computed_pointwise_drop_depth": 3,
+      "k": 2,
+      "m": 2,
+      "n": 4,
+      "table_hex": "0xf888"
+    },
+    {
+      "computed_global_drop_depth": 2,
+      "computed_metrics": {
+        "bs": 3,
+        "bs0": 2,
+        "bs1": 3,
+        "c": 3,
+        "c0": 2,
+        "c1": 3,
+        "d": 6,
+        "s": 3,
+        "s0": 2,
+        "s1": 3
+      },
+      "computed_pointwise_drop_depth": 4,
+      "k": 3,
+      "m": 2,
+      "n": 6,
+      "table_hex": "0xff80808080808080"
+    },
+    {
+      "computed_global_drop_depth": 2,
+      "computed_metrics": {
+        "bs": 3,
+        "bs0": 3,
+        "bs1": 2,
+        "c": 3,
+        "c0": 3,
+        "c1": 2,
+        "d": 6,
+        "s": 3,
+        "s0": 3,
+        "s1": 2
+      },
+      "computed_pointwise_drop_depth": 4,
+      "k": 2,
+      "m": 3,
+      "n": 6,
+      "table_hex": "0xfffff888f888f888"
+    },
+    {
+      "computed_global_drop_depth": 5,
+      "computed_metrics": {
+        "bs": 3,
+        "bs0": 3,
+        "bs1": 3,
+        "c": 3,
+        "c0": 3,
+        "c1": 3,
+        "d": 9,
+        "s": 3,
+        "s0": 3,
+        "s1": 3
+      },
+      "computed_pointwise_drop_depth": 5,
+      "k": 3,
+      "m": 3,
+      "n": 9,
+      "table_hex": "0xffffffffffffffffff80808080808080ff80808080808080ff80808080808080ff80808080808080ff80808080808080ff80808080808080ff80808080808080"
+    }
+  ],
+  "arithmetic": "exact integers",
+  "exhaustive_small_cases": {
+    "by_arity": [
+      {
+        "depth_exceeds_s": 0,
+        "functions_checked": 2,
+        "n": 0,
+        "pointwise_drop_depth_histogram": {
+          "0": 2
+        }
+      },
+      {
+        "depth_exceeds_s": 0,
+        "functions_checked": 4,
+        "n": 1,
+        "pointwise_drop_depth_histogram": {
+          "0": 2,
+          "1": 2
+        }
+      },
+      {
+        "depth_exceeds_s": 0,
+        "functions_checked": 16,
+        "n": 2,
+        "pointwise_drop_depth_histogram": {
+          "0": 2,
+          "1": 6,
+          "2": 8
+        }
+      },
+      {
+        "depth_exceeds_s": 0,
+        "functions_checked": 256,
+        "n": 3,
+        "pointwise_drop_depth_histogram": {
+          "0": 2,
+          "1": 118,
+          "2": 120,
+          "3": 16
+        }
+      }
+    ],
+    "depth_exceeds_s": 0,
+    "first_failure": null,
+    "functions_checked": 278,
+    "max_vars": 3
+  },
+  "global_stopping_condition": "Residual maximum bs is strictly smaller than the original maximum; constants pass.",
+  "input_encoding": "x=sum(x_i*2**i); truth-table bit x is f(x)",
+  "mask_encoding": "Bit i indicates original coordinate i; coordinates are zero-based.",
+  "pointwise_stopping_condition": "For every consistent x with original bs(f,x)>0, residual bs is strictly smaller.",
+  "round": 4,
+  "scope": "Exact minimax computation, original input thresholds retained at every state.",
+  "two_query_obstruction": {
+    "all_possible_second_coordinates": [
+      {
+        "answer_mask": 1,
+        "original_local_bs": 2,
+        "queried_mask": 3,
+        "residual_local_bs": 2,
+        "second_answer": 0,
+        "second_coordinate": 1,
+        "untouched_maximum_family_masks": [
+          4,
+          8
+        ],
+        "witness_input": 13,
+        "witness_output": 1
+      },
+      {
+        "answer_mask": 5,
+        "original_local_bs": 2,
+        "queried_mask": 5,
+        "residual_local_bs": 2,
+        "second_answer": 1,
+        "second_coordinate": 2,
+        "untouched_maximum_family_masks": [
+          2,
+          8
+        ],
+        "witness_input": 5,
+        "witness_output": 0
+      },
+      {
+        "answer_mask": 9,
+        "original_local_bs": 2,
+        "queried_mask": 9,
+        "residual_local_bs": 2,
+        "second_answer": 1,
+        "second_coordinate": 3,
+        "untouched_maximum_family_masks": [
+          2,
+          4
+        ],
+        "witness_input": 9,
+        "witness_output": 0
+      }
+    ],
+    "first_answer": 1,
+    "first_coordinate": 0,
+    "optimal_pointwise_tree": {
+      "0": {
+        "0": {
+          "answer_mask": 0,
+          "leaf": true,
+          "queried_mask": 5
+        },
+        "1": {
+          "answer_mask": 4,
+          "leaf": true,
+          "queried_mask": 5
+        },
+        "coordinate": 2
+      },
+      "1": {
+        "0": {
+          "0": {
+            "answer_mask": 1,
+            "leaf": true,
+            "queried_mask": 7
+          },
+          "1": {
+            "answer_mask": 5,
+            "leaf": true,
+            "queried_mask": 7
+          },
+          "coordinate": 2
+        },
+        "1": {
+          "answer_mask": 3,
+          "leaf": true,
+          "queried_mask": 3
+        },
+        "coordinate": 1
+      },
+      "coordinate": 0
+    },
+    "symmetry": "Permute the two terms and the two coordinates within each term."
+  }
+}

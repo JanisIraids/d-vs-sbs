@@ -48,6 +48,7 @@ of the same coordinate across distinct prime certificates.
 | $`s(f,x)`$ | Number of coordinates $`i`$ with $`f(x)\ne f(x^i)`$. |
 | Sensitive block at $`x`$ | Nonempty $`B\subseteq I`$ satisfying $`f(x^B)\ne f(x)`$. |
 | Minimal sensitive block | A sensitive block with no proper sensitive subset at the same input. “Minimal” always means inclusion-minimal, not minimum cardinality. |
+| $`\mathcal B_x(g)`$ | Set of all minimal sensitive blocks of $`g`$ at $`x`$. Fixing coordinates according to $`x`$ retains exactly the blocks disjoint from the fixed coordinates. |
 | Disjoint block family | Pairwise disjoint sensitive blocks at one fixed input. |
 | Maximal / maximum family | Maximal: no further block can be added while preserving disjointness. Maximum: largest possible number of blocks. |
 | $`bs(f,x)`$ | Size of a maximum disjoint block family at $`x`$. |
@@ -113,9 +114,21 @@ each selected query decreases $`\Phi`$ by at least $`\delta>0`$, and
 $`(\Phi(f)-L)/\delta\le s(f)bs(f)`$, telescoping gives the exact target.
 A constant-factor upper bound is recorded separately. A **batch** queries a
 specified set of remaining coordinates at cost equal to its size; all answer
-assignments must satisfy the claimed progress bound. **Amortized accounting**
+assignments must satisfy the claimed progress bound. An **adaptive batch**
+is a query tree with a specified stopping condition; its cost is its maximum
+path length. **Amortized accounting**
 allows individual steps without decrease only with an explicit bound on total
 query cost along every root-to-terminal path.
+
+In [R04](round-4.md), a block is **eliminated** at a consistent input when it
+intersects the queried coordinates and hence cannot be flipped within the
+restriction. The **block-elimination cost** $`\beta(g)`$ is the least adaptive
+batch cost that eliminates a block from every maximum disjoint family at
+every input. Equivalently, every leaf strictly lowers local block sensitivity
+for every consistent input, relative to $`g`$ at the start of the batch.
+Constants have $`\beta=0`$. A **uniform algorithm** is one query tree that
+works for every unknown input; input-dependent existence of a query set is
+a weaker requirement.
 
 | Status / failure | Meaning |
 | --- | --- |
