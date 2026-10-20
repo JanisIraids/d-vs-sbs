@@ -1,0 +1,56 @@
+{
+  "scope": {
+    "domain": "total Boolean functions",
+    "max_vars": 4,
+    "function_count": 65814,
+    "table_encoding": "bit x is f(x); x=sum_i x_i*2**i",
+    "arithmetic": "exact integers",
+    "enumeration": "all tables, increasing arity then integer table",
+    "conjecture_counterexamples": 0,
+    "status": "finite exhaustive evidence, not a general proof"
+  },
+  "candidates": {
+    "relevant_variables": {
+      "by_arity": [
+        {
+          "n": 0,
+          "functions": 2,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 1,
+          "functions": 4,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 2,
+          "functions": 16,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 3,
+          "functions": 256,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        },
+        {
+          "n": 4,
+          "functions": 65536,
+          "budget_failures": 0,
+          "progress_failures": 0,
+          "depth_exceeds_potential": 0
+        }
+      ],
+      "first_budget_failure": null,
+      "first_progress_failure": null,
+      "first_depth_exceeds_potential": null
+    }
+  }
+}

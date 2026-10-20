@@ -24,6 +24,12 @@ $$
 D(f)=1+\min_{i\in I}\max_{a\in\{0,1\}}D(f|_{x_i=a}).
 $$
 
+For an address vector $a=(a_0,\ldots,a_{k-1})$,
+$\operatorname{ind}(a)=\sum_j a_j2^j$ selects a datum in a $2^k$-entry array.
+The symbol $\oplus$ is XOR (addition modulo 2), and $[E]$ is 1 if statement
+$E$ is true and 0 otherwise. **Conditional relevance** means relevance in a
+specified restriction, rather than in the original function.
+
 ## Local and output-specific measures
 
 | Notation / term | Definition |
@@ -109,6 +115,7 @@ query cost along every root-to-terminal path.
 | Terminal failure | Claimed terminal bound does not hold. |
 | Failure mechanism | A proved structural reason for failure, preferably covering a family rather than a single truth table. |
 
-Identifiers: `L` denotes literature/derived baseline claims, `S` sources, and
-candidate/evidence identifiers are defined in the research record. Names such as
+Identifiers: `L` denotes literature/derived baseline claims, `S` sources, `T`
+the target, `P` proof contracts, `B` baseline claims, `F` failure mechanisms,
+`PS` proof-scheme proposals, and `R` candidate rounds. Names such as
 “works” or “fails” must specify which obligation and domain they concern.

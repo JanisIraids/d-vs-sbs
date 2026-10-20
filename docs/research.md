@@ -62,11 +62,11 @@ normalization also violates the requested budget. These are different failures.
 
 ## Proof-scheme review after the baseline
 
-**S01 (proposed direction).** Preserve more than extrema: certificate sizes,
+**PS01 (proposed direction).** Preserve more than extrema: certificate sizes,
 their multiplicities, or sensitive-block incidence may record changes hidden
 by F01. Any refinement still needs its own initial-budget proof.
 
-**S02 (known template, not a proof of T01).** Query a whole certificate or
+**PS02 (known template, not a proof of T01).** Query a whole certificate or
 maximum-degree monomial, and charge its actual size. The source-backed
 certificate and monomial algorithms in the literature record establish
 weaker bounds without requiring block sensitivity to drop after each bit.
@@ -97,6 +97,7 @@ B01, F01, and F02 above are analytical proofs.
 | Round | Refinement | Disposition |
 | --- | --- | --- |
 | [R01](round-1.md) | Count prime-certificate literals instead of maxima | Progress proved; parity gives unbounded budget excess |
+| [R02](round-2.md) | Count each relevant coordinate once | Progress proved; addressing gives unbounded budget excess |
 
 Each round states its exact definition, an analytical failure mechanism, finite
 checks, and reproduction commands. The initial baseline contains 65,814

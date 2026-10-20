@@ -11,6 +11,7 @@ budget and a query that decreases the measure on **both** answers.
 | $bs_0+bs_1$ | Refuted as a unit-progress potential | Preserved maxima; also insufficient range |
 | $bs,\ bs_0bs_1,\ s\,bs,\ C_0C_1$ | Refuted as single-query potentials | Preserved maxima |
 | [Prime-certificate literal mass](docs/round-1.md) | Progress proved; budget refuted | Repeated coordinates across many certificates |
+| [Relevant-coordinate count](docs/round-2.md) | Progress proved; budget refuted | Adds mutually exclusive future possibilities |
 
 For an OR of disjoint ANDs, every query has a 1-answer preserving
 $(s_0,s_1,bs_0,bs_1,C_0,C_1)$. This rules out **every** potential depending
@@ -43,4 +44,4 @@ the next round. Review changes to the proof scheme periodically.
 
 Initial milestone: literature and simple candidates, followed by three
 failure-informed rounds. Commit and push each completed milestone with its
-evidence. R01 is complete; the next round removes repeated coordinate charges.
+evidence. R01 and R02 are complete; the next round uses conditional relevance.

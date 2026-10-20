@@ -1,0 +1,438 @@
+{
+  "address_encoding": "A_k: low k bits address; H_k: data, then a, then b",
+  "arithmetic": "exact integers",
+  "compact_A5": {
+    "analytical_results": {
+      "bs": 6,
+      "budget": 36,
+      "d": 6,
+      "phi": 37,
+      "s": 6,
+      "source": "docs/round-2.md",
+      "status": "Proved formulas; upper bounds and greedy depth are not inferred from edge checks."
+    },
+    "computed_checks": {
+      "local_sensitivity": 6,
+      "relevance_edges": [
+        {
+          "coordinate": 0,
+          "input_hex": "0x40",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 1,
+          "input_hex": "0x80",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 2,
+          "input_hex": "0x200",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 3,
+          "input_hex": "0x2000",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 4,
+          "input_hex": "0x200000",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 5,
+          "input_hex": "0x0",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 6,
+          "input_hex": "0x1",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 7,
+          "input_hex": "0x2",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 8,
+          "input_hex": "0x3",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 9,
+          "input_hex": "0x4",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 10,
+          "input_hex": "0x5",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 11,
+          "input_hex": "0x6",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 12,
+          "input_hex": "0x7",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 13,
+          "input_hex": "0x8",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 14,
+          "input_hex": "0x9",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 15,
+          "input_hex": "0xa",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 16,
+          "input_hex": "0xb",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 17,
+          "input_hex": "0xc",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 18,
+          "input_hex": "0xd",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 19,
+          "input_hex": "0xe",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 20,
+          "input_hex": "0xf",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 21,
+          "input_hex": "0x10",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 22,
+          "input_hex": "0x11",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 23,
+          "input_hex": "0x12",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 24,
+          "input_hex": "0x13",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 25,
+          "input_hex": "0x14",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 26,
+          "input_hex": "0x15",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 27,
+          "input_hex": "0x16",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 28,
+          "input_hex": "0x17",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 29,
+          "input_hex": "0x18",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 30,
+          "input_hex": "0x19",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 31,
+          "input_hex": "0x1a",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 32,
+          "input_hex": "0x1b",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 33,
+          "input_hex": "0x1c",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 34,
+          "input_hex": "0x1d",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 35,
+          "input_hex": "0x1e",
+          "outputs": [
+            0,
+            1
+          ]
+        },
+        {
+          "coordinate": 36,
+          "input_hex": "0x1f",
+          "outputs": [
+            0,
+            1
+          ]
+        }
+      ],
+      "sensitive_coordinates_at_this_input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sensitivity_input_hex": "0x2022c0",
+      "sensitivity_input_output": 0
+    },
+    "k": 5,
+    "n": 37,
+    "truth_table_materialized": false
+  },
+  "exact_A2": {
+    "computed_budget": 9,
+    "computed_children": [
+      {
+        "answers": [
+          {
+            "answer": 0,
+            "phi": 3
+          },
+          {
+            "answer": 1,
+            "phi": 3
+          }
+        ],
+        "coordinate": 0
+      },
+      {
+        "answers": [
+          {
+            "answer": 0,
+            "phi": 3
+          },
+          {
+            "answer": 1,
+            "phi": 3
+          }
+        ],
+        "coordinate": 1
+      },
+      {
+        "answers": [
+          {
+            "answer": 0,
+            "phi": 5
+          },
+          {
+            "answer": 1,
+            "phi": 5
+          }
+        ],
+        "coordinate": 2
+      },
+      {
+        "answers": [
+          {
+            "answer": 0,
+            "phi": 5
+          },
+          {
+            "answer": 1,
+            "phi": 5
+          }
+        ],
+        "coordinate": 3
+      },
+      {
+        "answers": [
+          {
+            "answer": 0,
+            "phi": 5
+          },
+          {
+            "answer": 1,
+            "phi": 5
+          }
+        ],
+        "coordinate": 4
+      },
+      {
+        "answers": [
+          {
+            "answer": 0,
+            "phi": 5
+          },
+          {
+            "answer": 1,
+            "phi": 5
+          }
+        ],
+        "coordinate": 5
+      }
+    ],
+    "computed_metrics": {
+      "bs": 3,
+      "bs0": 3,
+      "bs1": 3,
+      "c": 3,
+      "c0": 3,
+      "c1": 3,
+      "d": 3,
+      "s": 3,
+      "s0": 3,
+      "s1": 3
+    },
+    "computed_phi": 6,
+    "computed_relevant_coordinates": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "n": 6,
+    "table_hex": "0xfedcba9876543210"
+  },
+  "input_encoding": "x=sum(x_i*2**i); truth-table bit x is f(x)",
+  "round": 2,
+  "scope": "Curated witnesses. Computed checks and analytical formulas are separated."
+}
