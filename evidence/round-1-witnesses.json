@@ -1,0 +1,189 @@
+{
+  "address_encoding": "A_k: low k bits address; H_k: data, then a, then b",
+  "arithmetic": "exact integers",
+  "exact_examples": [
+    {
+      "computed_budget": 9,
+      "computed_children": [
+        {
+          "answers": [
+            {
+              "W0": 4,
+              "W1": 4,
+              "answer": 0,
+              "phi": 4
+            },
+            {
+              "W0": 4,
+              "W1": 4,
+              "answer": 1,
+              "phi": 4
+            }
+          ],
+          "coordinate": 0
+        },
+        {
+          "answers": [
+            {
+              "W0": 4,
+              "W1": 4,
+              "answer": 0,
+              "phi": 4
+            },
+            {
+              "W0": 4,
+              "W1": 4,
+              "answer": 1,
+              "phi": 4
+            }
+          ],
+          "coordinate": 1
+        },
+        {
+          "answers": [
+            {
+              "W0": 4,
+              "W1": 4,
+              "answer": 0,
+              "phi": 4
+            },
+            {
+              "W0": 4,
+              "W1": 4,
+              "answer": 1,
+              "phi": 4
+            }
+          ],
+          "coordinate": 2
+        }
+      ],
+      "computed_metrics": {
+        "bs": 3,
+        "bs0": 3,
+        "bs1": 3,
+        "c": 3,
+        "c0": 3,
+        "c1": 3,
+        "d": 3,
+        "s": 3,
+        "s0": 3,
+        "s1": 3
+      },
+      "computed_prime_masses": {
+        "W0": 12,
+        "W1": 12,
+        "phi": 12
+      },
+      "computed_relevant_coordinates": [
+        0,
+        1,
+        2
+      ],
+      "n": 3,
+      "name": "parity3",
+      "table_hex": "0x96"
+    },
+    {
+      "computed_budget": 4,
+      "computed_children": [
+        {
+          "answers": [
+            {
+              "W0": 2,
+              "W1": 2,
+              "answer": 0,
+              "phi": 2
+            },
+            {
+              "W0": 4,
+              "W1": 3,
+              "answer": 1,
+              "phi": 3
+            }
+          ],
+          "coordinate": 0
+        },
+        {
+          "answers": [
+            {
+              "W0": 2,
+              "W1": 2,
+              "answer": 0,
+              "phi": 2
+            },
+            {
+              "W0": 4,
+              "W1": 3,
+              "answer": 1,
+              "phi": 3
+            }
+          ],
+          "coordinate": 1
+        },
+        {
+          "answers": [
+            {
+              "W0": 2,
+              "W1": 2,
+              "answer": 0,
+              "phi": 2
+            },
+            {
+              "W0": 4,
+              "W1": 3,
+              "answer": 1,
+              "phi": 3
+            }
+          ],
+          "coordinate": 2
+        },
+        {
+          "answers": [
+            {
+              "W0": 2,
+              "W1": 2,
+              "answer": 0,
+              "phi": 2
+            },
+            {
+              "W0": 4,
+              "W1": 3,
+              "answer": 1,
+              "phi": 3
+            }
+          ],
+          "coordinate": 3
+        }
+      ],
+      "computed_metrics": {
+        "bs": 2,
+        "bs0": 2,
+        "bs1": 2,
+        "c": 2,
+        "c0": 2,
+        "c1": 2,
+        "d": 4,
+        "s": 2,
+        "s0": 2,
+        "s1": 2
+      },
+      "computed_prime_masses": {
+        "W0": 8,
+        "W1": 4,
+        "phi": 4
+      },
+      "computed_relevant_coordinates": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "n": 4,
+      "name": "and_or_2x2",
+      "table_hex": "0xf888"
+    }
+  ],
+  "input_encoding": "x=sum(x_i*2**i); truth-table bit x is f(x)",
+  "round": 1,
+  "scope": "Curated witnesses. Computed checks and analytical formulas are separated."
+}
