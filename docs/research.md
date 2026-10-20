@@ -28,6 +28,11 @@ Exact $`D`$ is a validation reference, not a proposed independently justified
 potential. A counterexample to an obligation of P01 is not a counterexample
 to T01.
 
+After finding a failure, seek its broadest proved form before selecting the
+next candidate: generalize the mechanism, distinguish exact coefficients from
+unbounded losses, test adaptive and weaker variants, and establish scope
+boundaries. Follow the [research workflow](workflow.md).
+
 ## Baseline: extremal-parameter potentials
 
 **B01 (proved).** For
@@ -105,6 +110,7 @@ B01, F01, and F02 above are analytical proofs.
 | [R02](round-2.md) | Count each relevant coordinate once | Progress proved; addressing gives unbounded budget excess |
 | [R03](round-3.md) | Query for guaranteed relevance loss, then count that algorithm's depth | Progress proved; two independent selectors defeat the fixed tie rule |
 | [R04](round-4.md) | Eliminate a block from every maximum family at every input within $`s`$ adaptive queries | Refuted: exact cost $`m+k-1>s`$ on disjoint AND–OR |
+| [R05](round-5.md) | Allow any constant multiple of $`s`$ for block elimination | Refuted: exact family cost $`s\lceil t/2\rceil=\Theta(s^2)`$; quadratic is optimal |
 
 Each round states its exact definition, an analytical failure mechanism, finite
 checks, and reproduction commands. The initial baseline contains 65,814
@@ -138,3 +144,27 @@ of costs at most $`2t-1,2t-3,\ldots,1`$ achieve the desired elimination and
 total exactly $`t^2=s\,bs`$ in the worst case. Thus this stronger batch
 lemma is false on a family satisfying the target with equality.
 A general account paying actual batch costs remains open.
+
+## Generalizing block-elimination failures
+
+**F04: untouched witness supports (proved).** Fix a background input and
+witnesses with maximum block families. Each successful transcript on the
+background must hit every set containing a witness's disagreements and its
+whole family. Thus the transversal number of these supports lower-bounds
+$`\beta`$, even for adaptive algorithms.
+
+[R05](round-5.md) gives an elementary family with
+$`s=3(t-1)`$ and $`\beta=s\lceil t/2\rceil`$. Its planted inputs have only
+sensitive singletons, so the same quadratic lower bound holds for eliminating
+any one minimal block, and extends to bounded-error randomized procedures.
+A cyclically invariant family supplies a second application.
+
+The general monomial bound $`\beta\le\deg\le s_0s_1\le s^2`$ shows quadratic
+growth is optimal. In contrast, every unate function satisfies
+$`\beta\le s_0+s_1-1`$: R04's factor approaching 2 is sharp for that entire
+class, and cannot refute $`O(s)`$ by monotone amplification.
+
+**PS04: reconsider which inputs require progress.** The elementary quadratic
+example nevertheless lowers global $`bs`$ after any single query. Its failure
+therefore isolates the simultaneous local requirement. A global-progress
+scheme or an amortized account remains a separate, unproved direction.

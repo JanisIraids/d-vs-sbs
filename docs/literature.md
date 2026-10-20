@@ -79,6 +79,8 @@ Theorem 4 bound $`D(f)\le2\deg(f)^3`$.
 
 **Use:** count progress across batches, charging their actual query sizes.
 Merely replacing the maximum-degree monomial cost by $`s(f)`$ needs a new lemma.
+The same support argument gives $`\beta(f)\le\deg(f)`$; [R05](round-5.md)
+shows that a universal $`O(s)`$ replacement is false for local block elimination.
 
 ### L05 — The degree baseline gives $`D\le s_0s_1bs`$
 
@@ -130,6 +132,25 @@ The factorial **multiplies** $`3^{|M|}`$.
 **Use:** query batches and multiplicative progress are viable modifications;
 neither an $`s\,bs`$ budget nor unit-query progress follows.
 
+### L08 — Separated certificates and cyclic sparse witnesses
+
+**Published:** S06, Lemmas 3–4, pp. 7, 9, give the OR-composition sensitivity
+identities and describe functions whose accepting inputs form certificate
+subcubes separated by Hamming distance at least 3. Such functions have
+$`s_0=1`$; the fixed certificate coordinates are sensitive at each accepting
+input. [S06](https://eccc.weizmann.ac.il/report/2018/205/download/#page=9)
+
+**Published:** S07, Section 3, Claim 3.3, pp. 56–57, defines a cyclic pattern
+on $`n`$ variables with $`6a-2`$ fixed positions,
+$`s_1=6a-2`$, and $`s_0=\Theta(n/a^2)`$. The pattern extended by zeros
+has all fixed positions sensitive. Taking $`n=a^3`$ gives $`s=\Theta(a)`$.
+[S07](https://dmtcs.episciences.org/552/pdf#page=6)
+
+**New use in this repository:** R05 converts these certificate witnesses into
+adaptive-query lower bounds through hitting sets. The exact star-family
+formula and the cyclic $`\Omega(s^2)`$ block-elimination lower bound are
+derived here; they are not statements attributed to S06 or S07.
+
 ## What the baseline requires of new candidates
 
 - Check the initial budget, terminal bound, and both answers to the selected
@@ -154,6 +175,8 @@ published theorems.
 | S03 | Aaronson, Ben-David, Kothari, Rao, Tal, *Degree vs. Approximate Degree and Quantum Implications of Huang's Sensitivity Theorem*, [arXiv 2010.12629v1](https://arxiv.org/pdf/2010.12629v1), [submitted 2020-10-23](https://arxiv.org/abs/2010.12629); Theorem 1, Lemma 31, equation (66). |
 | S04 | Kothari, Kovacs-Deak, Wang, Yang, *Rational degree is polynomially related to degree*, [ECCC TR26-005 revision 2](https://eccc.weizmann.ac.il/report/2026/005/revision/2/download/), [2026-09-28](https://eccc.weizmann.ac.il/report/2026/005/); Section 4, equation (16), Definition 12, Lemma 6. |
 | S05 | Buhrman, de Wolf, *Complexity Measures and Decision Tree Complexity: A Survey*, [author-hosted manuscript](https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf), dated 2002-10-10; Theorem 2, p. 10, and Corollary 2 / Open problem 2, p. 16. Used for its reproduced arguments and explicit historical statements. |
+| S06 | Chaubal, Gál, *New Constructions with Quadratic Separation between Sensitivity and Block Sensitivity*, [ECCC TR18-205](https://eccc.weizmann.ac.il/report/2018/205/download/), 2018; Lemmas 3–4, pp. 7, 9. |
+| S07 | Chakraborty, *On the sensitivity of cyclically-invariant Boolean functions*, [DMTCS 13:4 (2011), 51–60](https://dmtcs.episciences.org/552/pdf); Section 3, Claim 3.3, pp. 56–57. |
 
 The search covered these sources and targeted queries for the exact target,
 including `"D(f)" "s(f)bs(f)" conjecture` and

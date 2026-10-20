@@ -6,6 +6,10 @@ $`F_{2,2}=(x_0\land x_1)\lor(x_2\land x_3)`$ has sensitivity 2, but needs
 the exact cost for $`F_{m,k}`$, the OR of $`m`$ disjoint width-$`k`$ ANDs, is
 $`m+k-1`$. These are local derivations, with no claim of historical novelty.
 
+**Generalization:** this family refutes coefficient 1 but stays below $`2s`$.
+[R05](round-5.md) proves that every unate function admits that linear bound,
+then gives nonmonotone families requiring $`\Theta(s^2)`$ queries.
+
 ## Exact condition and the known-input distinction
 
 Write $`\mathcal B_x(g)`$ for the minimal sensitive blocks at $`x`$.

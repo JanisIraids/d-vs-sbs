@@ -1,0 +1,238 @@
+{
+  "arithmetic": "exact integers",
+  "background_triple_in_increasing_coordinate_order": [
+    0,
+    0,
+    1
+  ],
+  "construction": "OR of 3(t-1) disjoint complete-graph star gadgets",
+  "coordinate_encoding": "Groups first; lexicographically ordered edges within each group; three consecutive coordinates per edge; x=sum(x_i*2**i).",
+  "examples": [
+    {
+      "analytic_bounds": {
+        "beta": 12,
+        "beta_lower": 12,
+        "beta_over_s_lower": 2,
+        "beta_upper": 12,
+        "bs": 18,
+        "bs0": 18,
+        "bs1": 6,
+        "exact_beta_source": "analytical equality; no minimax search",
+        "global_block_drop_cost": 1,
+        "s": 6,
+        "s0": 6,
+        "s1": 6
+      },
+      "finite_checks": {
+        "background_output": 0,
+        "certificate_pairs_checked": 3,
+        "certificate_support_size": 6,
+        "edge_cover": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "incidences_per_coordinate": 2,
+        "local_certificates_checked": 3,
+        "maximum_pairwise_conflicts": 3,
+        "minimum_pairwise_conflicts": 3,
+        "planted_inputs_checked": 18,
+        "representative_certificate_mask_hex": "0x1c7",
+        "representative_coordinate_flips_checked": 54,
+        "representative_planted_group": 0,
+        "representative_planted_vertex": 1,
+        "representative_sensitive_mask_hex": "0x1c7",
+        "representative_sensitivity": 6,
+        "upper_bound_hits_every_certificate_support": true,
+        "upper_bound_query_count": 12
+      },
+      "groups_m": 6,
+      "t": 3,
+      "variables_n": 54,
+      "variables_per_group": 9
+    },
+    {
+      "analytic_bounds": {
+        "beta": 18,
+        "beta_lower": 18,
+        "beta_over_s_lower": 2,
+        "beta_upper": 18,
+        "bs": 36,
+        "bs0": 36,
+        "bs1": 9,
+        "exact_beta_source": "analytical equality; no minimax search",
+        "global_block_drop_cost": 1,
+        "s": 9,
+        "s0": 9,
+        "s1": 9
+      },
+      "finite_checks": {
+        "background_output": 0,
+        "certificate_pairs_checked": 6,
+        "certificate_support_size": 9,
+        "edge_cover": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "incidences_per_coordinate": 2,
+        "local_certificates_checked": 4,
+        "maximum_pairwise_conflicts": 3,
+        "minimum_pairwise_conflicts": 3,
+        "planted_inputs_checked": 36,
+        "representative_certificate_mask_hex": "0x38e38",
+        "representative_coordinate_flips_checked": 162,
+        "representative_planted_group": 0,
+        "representative_planted_vertex": 2,
+        "representative_sensitive_mask_hex": "0x38e38",
+        "representative_sensitivity": 9,
+        "upper_bound_hits_every_certificate_support": true,
+        "upper_bound_query_count": 18
+      },
+      "groups_m": 9,
+      "t": 4,
+      "variables_n": 162,
+      "variables_per_group": 18
+    },
+    {
+      "analytic_bounds": {
+        "beta": 84,
+        "beta_lower": 84,
+        "beta_over_s_lower": 4,
+        "beta_upper": 84,
+        "bs": 168,
+        "bs0": 168,
+        "bs1": 21,
+        "exact_beta_source": "analytical equality; no minimax search",
+        "global_block_drop_cost": 1,
+        "s": 21,
+        "s0": 21,
+        "s1": 21
+      },
+      "finite_checks": {
+        "background_output": 0,
+        "certificate_pairs_checked": 28,
+        "certificate_support_size": 21,
+        "edge_cover": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "incidences_per_coordinate": 2,
+        "local_certificates_checked": 8,
+        "maximum_pairwise_conflicts": 3,
+        "minimum_pairwise_conflicts": 3,
+        "planted_inputs_checked": 168,
+        "representative_certificate_mask_hex": "0x7fc01c01c0038000e00",
+        "representative_coordinate_flips_checked": 1764,
+        "representative_planted_group": 0,
+        "representative_planted_vertex": 4,
+        "representative_sensitive_mask_hex": "0x7fc01c01c0038000e00",
+        "representative_sensitivity": 21,
+        "upper_bound_hits_every_certificate_support": true,
+        "upper_bound_query_count": 84
+      },
+      "groups_m": 21,
+      "t": 8,
+      "variables_n": 1764,
+      "variables_per_group": 84
+    },
+    {
+      "analytic_bounds": {
+        "beta": 360,
+        "beta_lower": 360,
+        "beta_over_s_lower": 8,
+        "beta_upper": 360,
+        "bs": 720,
+        "bs0": 720,
+        "bs1": 45,
+        "exact_beta_source": "analytical equality; no minimax search",
+        "global_block_drop_cost": 1,
+        "s": 45,
+        "s0": 45,
+        "s1": 45
+      },
+      "finite_checks": {
+        "background_output": 0,
+        "certificate_pairs_checked": 120,
+        "certificate_support_size": 45,
+        "edge_cover": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            14,
+            15
+          ]
+        ],
+        "incidences_per_coordinate": 2,
+        "local_certificates_checked": 16,
+        "maximum_pairwise_conflicts": 3,
+        "minimum_pairwise_conflicts": 3,
+        "planted_inputs_checked": 720,
+        "representative_certificate_mask_hex": "0x1fffff000007000007000000e000000380000001c00000001c0000000038000000000e00000",
+        "representative_coordinate_flips_checked": 16200,
+        "representative_planted_group": 0,
+        "representative_planted_vertex": 8,
+        "representative_sensitive_mask_hex": "0x1fffff000007000007000000e000000380000001c00000001c0000000038000000000e00000",
+        "representative_sensitivity": 45,
+        "upper_bound_hits_every_certificate_support": true,
+        "upper_bound_query_count": 360
+      },
+      "groups_m": 45,
+      "t": 16,
+      "variables_n": 16200,
+      "variables_per_group": 360
+    }
+  ],
+  "round": 5,
+  "scope": "Analytical sensitivity and exact block-elimination formulas, supported by finite certificate and planted-witness checks. No minimax beta search."
+}

@@ -14,6 +14,7 @@ budget and a query that decreases the measure on **both** answers.
 | [Relevant-coordinate count](docs/round-2.md) | Progress proved; budget refuted | Adds mutually exclusive future possibilities |
 | [Fixed relevance-greedy depth](docs/round-3.md) | Progress proved; budget refuted | Misses relevance eliminated by several answers together |
 | [Block elimination in at most $`s`$ adaptive queries](docs/round-4.md) | Refuted | Simultaneous local progress costs $`m+k-1`$ on disjoint AND–OR |
+| [Block elimination in $`O(s)`$ adaptive queries](docs/round-5.md) | Refuted; quadratic cost is optimal in order | Untouched witness supports force $`\Theta(s^2)`$ queries |
 
 For an OR of disjoint ANDs, every query has a 1-answer preserving
 $`(s_0,s_1,bs_0,bs_1,C_0,C_1)`$. This rules out **every** potential depending
@@ -30,11 +31,19 @@ queries are necessary. On the balanced disjoint AND–OR family, unequal
 batch costs can still sum to the exact $`s\,bs`$ budget; see
 [R04](docs/round-4.md) for the proof and amortization.
 
+The stronger [R05 result](docs/round-5.md) rules out **every constant multiple**
+of sensitivity: an explicit family has $`s=3(t-1)`$ and exact elimination
+cost $`s\lceil t/2\rceil`$. Even eliminating any one minimal block can require
+quadratically many queries. The general upper bound is $`\beta\le s^2`$.
+This concerns local progress at every input; on this family global block
+sensitivity drops after any single query.
+
 ## Reading and reproduction
 
 - [Glossary](docs/glossary.md): exact definitions and status labels.
 - [Literature](docs/literature.md): source-backed claims and proof mechanisms.
 - [Research record](docs/research.md): proofs, failures, and proof-scheme reviews.
+- [Workflow](docs/workflow.md): candidate evaluation and generalization of failures.
 - [Evidence](evidence/): reproducible finite audits; not general proofs.
 
 Python 3.10 or later, standard library only:
@@ -60,7 +69,10 @@ Exact $`D`$ is computed only for validation, never used to define a candidate.
 Specify one candidate and the failure it addresses; evaluate its terminal
 value, budget, and progress separately; record a proof, a verified failure,
 or a tentative status with a precise missing lemma. Feed every failure into
-the next round. Review changes to the proof scheme periodically.
+the next round. **Before closing a failure, seek its broadest proved scope:**
+extract a general mechanism, quantify exact versus asymptotic losses, test
+adaptivity and weaker obligations, and establish boundaries or matching upper
+bounds. See the [workflow](docs/workflow.md). Review the proof scheme periodically.
 
 The initial milestone—literature, simple candidates, and three further
 rounds—is complete. Next priority: share certificate charges while accounting

@@ -11,6 +11,8 @@ coordinate set. A restriction is again total on its remaining coordinates.
 | $`x^B`$ | Input obtained from $`x`$ by flipping precisely the coordinates in $`B\subseteq I`$; $`x^i=x^{\{i\}}`$. |
 | Literal | A coordinate-value requirement $`x_i=a`$, with $`a\in\{0,1\}`$. |
 | Partial assignment $`\rho`$ | A consistent set of literals on distinct coordinates. Its support $`\mathrm{dom}(\rho)`$ is the set of fixed coordinates. |
+| Certificate subcube | The set of all full inputs extending a certificate. |
+| Hamming distance | Number of differing coordinates between two full inputs; for two sets of inputs, the minimum such distance between their members. |
 | Restriction $`f\vert _\rho`$ | Substitute $`\rho`$ and retain the coordinates outside $`\mathrm{dom}(\rho)`$. The empty restriction gives $`f`$. |
 | Query / branch | A query reveals one previously unqueried $`x_i`$; answer $`a`$ gives the branch $`f\vert _{x_i=a}`$. |
 | Relevant coordinate | $`i`$ such that $`f(x)\ne f(x^i)`$ for some $`x`$. An irrelevant coordinate never changes the output. |
@@ -18,6 +20,7 @@ coordinate set. A restriction is again total on its remaining coordinates.
 | Constant / terminal | A function taking a single value on all its inputs, including a function on no coordinates. Terminal states require no further queries. |
 | $`D(f)`$ | Minimum, over exact deterministic decision trees computing $`f`$, of their maximum number of queries on any input. Constants have $`D=0`$. |
 | Monotone Boolean function | $`x_i\le y_i`$ for every $`i`$ implies $`f(x)\le f(y)`$. Distinct from a potential being monotone under restrictions. |
+| Unate Boolean function | A function that becomes monotone after complementing a fixed subset of input coordinates. |
 
 For nonconstant $`f`$,
 
@@ -55,6 +58,7 @@ of the same coordinate across distinct prime certificates.
 | Certificate for $`x`$ | A partial assignment contained in $`x`$ whose every completion has output $`f(x)`$. |
 | $`b`$-certificate | A partial assignment whose every completion has output $`b`$. |
 | $`C(f,x)`$ | Minimum number of literals in a certificate for $`x`$. |
+| $`c_b(f)`$ | Minimum certificate size over inputs of output $`b`$, for nonconstant $`f`$. Distinct from the maximum $`C_b(f)`$. |
 | Prime $`b`$-certificate | A $`b`$-certificate from which no literal can be removed while remaining a $`b`$-certificate. Distinct assignments on the same support are distinct certificates. |
 | $`\mathcal P_b(f)`$, $`W_b(f)`$ | Set of all prime $`b`$-certificates and its literal mass $`W_b(f)=\sum_{P\in\mathcal P_b(f)}\vert P\vert `$. For a constant $`b`$, the sole prime $`b`$-certificate is empty, and $`\mathcal P_{1-b}=\varnothing`$; both masses are zero. |
 
@@ -129,6 +133,28 @@ for every consistent input, relative to $`g`$ at the start of the batch.
 Constants have $`\beta=0`$. A **uniform algorithm** is one query tree that
 works for every unknown input; input-dependent existence of a query set is
 a weaker requirement.
+
+In [R05](round-5.md), a **hitting set** for a family $`\mathcal S`$ intersects
+every member; its minimum size is the **transversal number** $`\tau(\mathcal S)`$.
+A **background input** is a fixed input whose answers define the adversarial
+transcript. A **witness support** contains both a witness's disagreements with
+that background and every coordinate of its chosen maximum block family.
+Missing it preserves both consistency and the whole family.
+
+The **weaker block-elimination task** only requires eliminating some minimal
+sensitive block at each input, without requiring strict local block-sensitivity
+decrease. R05's lower bounds apply to this task too, because its hard inputs
+have only one maximum family and that family contains all minimal blocks.
+**Global block-sensitivity progress** asks instead for each leaf restriction
+to have smaller $`bs`$ than the original function; it need not reduce local
+block sensitivity at every input.
+
+The **complete graph** $`K_t`$ has $`t`$ vertices and one edge for every
+unordered pair. An **edge cover** selects edges incident to every vertex. A **cyclic translate**
+adds a fixed offset to coordinate indices modulo the input length.
+A function is **cyclically invariant** if translating the input does not change
+its output. A permutation group is **transitive** if it can send any coordinate
+to any other coordinate.
 
 | Status / failure | Meaning |
 | --- | --- |
