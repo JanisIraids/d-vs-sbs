@@ -27,7 +27,7 @@ satisfies
 
 ```math
 \forall x\supseteq\rho:\qquad
-bs(g|_\rho,x_{\overline{\mathrm{dom}(\rho)}})<bs(g,x).
+bs(g|_\rho,x_{\overline{\mathrm{dom}(\rho)}})\lt bs(g,x).
 ```
 
 Set $`\beta(g)=0`$ for constant $`g`$, where elimination is vacuous.
