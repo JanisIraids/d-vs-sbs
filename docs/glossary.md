@@ -29,6 +29,16 @@ $\operatorname{ind}(a)=\sum_j a_j2^j$ selects a datum in a $2^k$-entry array.
 The symbol $\oplus$ is XOR (addition modulo 2), and $[E]$ is 1 if statement
 $E$ is true and 0 otherwise. **Conditional relevance** means relevance in a
 specified restriction, rather than in the original function.
+**Joint conditional relevance** describes the R03 obstruction: several query
+answers together eliminate coordinates even though every single query has an
+answer retaining all the other relevant coordinates.
+
+In R03, the **guaranteed relevance loss** of coordinate $i$ is
+$h_i(g)=r(g)-\max_a r(g|_{i=a})$. The **relevance-greedy rule** chooses a
+maximizer $i_*(g)$, breaking ties by a fixed inherited coordinate order.
+Its algorithm depth $\Phi_3$ uses that rule at every node, without optimizing
+over decision trees. In R01, **certificate multiplicity** is repeated counting
+of the same coordinate across distinct prime certificates.
 
 ## Local and output-specific measures
 

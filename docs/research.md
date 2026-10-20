@@ -98,7 +98,22 @@ B01, F01, and F02 above are analytical proofs.
 | --- | --- | --- |
 | [R01](round-1.md) | Count prime-certificate literals instead of maxima | Progress proved; parity gives unbounded budget excess |
 | [R02](round-2.md) | Count each relevant coordinate once | Progress proved; addressing gives unbounded budget excess |
+| [R03](round-3.md) | Query for guaranteed relevance loss, then count that algorithm's depth | Progress proved; two independent selectors defeat the fixed tie rule |
 
 Each round states its exact definition, an analytical failure mechanism, finite
 checks, and reproduction commands. The initial baseline contains 65,814
 functions; none violates T01. This does not prove T01 outside that finite set.
+
+## First milestone conclusions
+
+The baseline and all three new rounds are complete. None establishes T01;
+none remains an untested or tentative candidate. R01–R03 each has a complete
+progress proof and an unbounded family of budget failures. The [final scheme
+review](round-3.md#final-scheme-review-and-next-obligation) proposes costed batches
+or explicit algorithmic state, with a precise missing accounting lemma.
+
+The next priority is a candidate that shares charges across certificates while
+recognizing relevance eliminated by several answers together. A new scalar
+combination of the six maxima is already excluded by F01. Changing the greedy
+tie rule alone requires fresh evaluation; the R03 proof refutes only the
+stated rule, not all relevance-based algorithms.
