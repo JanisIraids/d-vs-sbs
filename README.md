@@ -1,6 +1,6 @@
 # Deterministic queries versus sensitivity × block sensitivity
 
-Research target: $D(f)\le s(f)\,bs(f)$ for every **total** Boolean function.
+Research target: $`D(f)\le s(f)\,bs(f)`$ for every **total** Boolean function.
 We seek independently defined progress measures with a sufficient initial
 budget and a query that decreases the measure on **both** answers.
 
@@ -8,18 +8,18 @@ budget and a query that decreases the measure on **both** answers.
 
 | Candidate | Status | Failure mechanism |
 | --- | --- | --- |
-| $bs_0+bs_1$ | Refuted as a unit-progress potential | Preserved maxima; also insufficient range |
-| $bs,\ bs_0bs_1,\ s\,bs,\ C_0C_1$ | Refuted as single-query potentials | Preserved maxima |
+| $`bs_0+bs_1`$ | Refuted as a unit-progress potential | Preserved maxima; also insufficient range |
+| $`bs,\ bs_0bs_1,\ s\,bs,\ C_0C_1`$ | Refuted as single-query potentials | Preserved maxima |
 | [Prime-certificate literal mass](docs/round-1.md) | Progress proved; budget refuted | Repeated coordinates across many certificates |
 | [Relevant-coordinate count](docs/round-2.md) | Progress proved; budget refuted | Adds mutually exclusive future possibilities |
 | [Fixed relevance-greedy depth](docs/round-3.md) | Progress proved; budget refuted | Misses relevance eliminated by several answers together |
 
 For an OR of disjoint ANDs, every query has a 1-answer preserving
-$(s_0,s_1,bs_0,bs_1,C_0,C_1)$. This rules out **every** potential depending
+$`(s_0,s_1,bs_0,bs_1,C_0,C_1)`$. This rules out **every** potential depending
 only on those six maxima. It does not refute the target conjecture.
 
-The three new candidates respectively fail on parity ($12>9$), addressing
-($37>36$), and two independent selectors ($530>400$). Each has a complete
+The three new candidates respectively fail on parity ($`12>9`$), addressing
+($`37>36`$), and two independent selectors ($`530>400`$). Each has a complete
 progress proof and an unbounded family of budget failures; the conjecture
 remains unresolved.
 
@@ -44,9 +44,9 @@ proved families. Fourteen unit tests check the exact engine and candidate
 semantics. Large-family evidence distinguishes direct witness checks from
 analytical upper bounds.
 
-Truth table bit $x$ is $f(x)$, where $x=\sum_i x_i2^i$. Coordinates are
+Truth table bit $`x`$ is $`f(x)`$, where $`x=\sum_i x_i2^i`$. Coordinates are
 zero-based; restrictions remove a coordinate and renumber in ascending order.
-Exact $D$ is computed only for validation, never used to define a candidate.
+Exact $`D`$ is computed only for validation, never used to define a candidate.
 
 ## Research workflow
 
