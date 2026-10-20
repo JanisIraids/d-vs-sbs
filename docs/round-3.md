@@ -28,8 +28,8 @@ selected datum.
 **Budget failure: proved.** For $k\ge3$, use two independent address
 registers selecting from a shared data array:
 $$
-H_k(a,b,z)=z_{\operatorname{ind}(a)}
-\mathbin{\oplus}z_{\operatorname{ind}(b)}.
+H_k(a,b,z)=z_{\mathrm{ind}(a)}
+\mathbin{\oplus}z_{\mathrm{ind}(b)}.
 $$
 The coordinate order is all $2^k$ data bits first, then the $k$ bits of
 $a$, then the $k$ bits of $b$. All coordinates are relevant.

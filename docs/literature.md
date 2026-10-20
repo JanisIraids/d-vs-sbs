@@ -94,7 +94,7 @@ factor $\min(s_0,s_1)$. The degree bound alone does not establish the target.
 **Published:** S04, Section 4, equation (16), p. 8:
 $$
 D(f)\le
-\bigl(\operatorname{ndeg}(f)+\operatorname{ndeg}(\neg f)\bigr)
+\bigl(\mathrm{ndeg}(f)+\mathrm{ndeg}(\neg f)\bigr)
 C_{\min}^{\downarrow}(f).
 $$
 Querying a minimum certificate decreases one polynomial degree. Restriction can

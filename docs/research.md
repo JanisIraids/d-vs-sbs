@@ -11,7 +11,7 @@ for notation and [literature](literature.md) for source-backed starting points.
 of $f$, is nonnegative on constants, and satisfies
 $$
 \forall g\text{ nonconstant}\quad
-\exists i\in\operatorname{Rel}(g)\quad
+\exists i\in\mathrm{Rel}(g)\quad
 \forall a\in\{0,1\}:\quad
 \Phi(g|_{i=a})\le\Phi(g)-1.
 $$

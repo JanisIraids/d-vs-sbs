@@ -10,11 +10,11 @@ coordinate set. A restriction is again total on its remaining coordinates.
 | --- | --- |
 | $x^B$ | Input obtained from $x$ by flipping precisely the coordinates in $B\subseteq I$; $x^i=x^{\{i\}}$. |
 | Literal | A coordinate-value requirement $x_i=a$, with $a\in\{0,1\}$. |
-| Partial assignment $\rho$ | A consistent set of literals on distinct coordinates. Its support $\operatorname{dom}(\rho)$ is the set of fixed coordinates. |
-| Restriction $f\vert _\rho$ | Substitute $\rho$ and retain the coordinates outside $\operatorname{dom}(\rho)$. The empty restriction gives $f$. |
+| Partial assignment $\rho$ | A consistent set of literals on distinct coordinates. Its support $\mathrm{dom}(\rho)$ is the set of fixed coordinates. |
+| Restriction $f\vert _\rho$ | Substitute $\rho$ and retain the coordinates outside $\mathrm{dom}(\rho)$. The empty restriction gives $f$. |
 | Query / branch | A query reveals one previously unqueried $x_i$; answer $a$ gives the branch $f\vert _{x_i=a}$. |
 | Relevant coordinate | $i$ such that $f(x)\ne f(x^i)$ for some $x$. An irrelevant coordinate never changes the output. |
-| $\operatorname{Rel}(f)$, $r(f)$ | Set of relevant coordinates and its cardinality. The implementation retains their relative order when removing fixed coordinates. |
+| $\mathrm{Rel}(f)$, $r(f)$ | Set of relevant coordinates and its cardinality. The implementation retains their relative order when removing fixed coordinates. |
 | Constant / terminal | A function taking a single value on all its inputs, including a function on no coordinates. Terminal states require no further queries. |
 | $D(f)$ | Minimum, over exact deterministic decision trees computing $f$, of their maximum number of queries on any input. Constants have $D=0$. |
 | Monotone Boolean function | $x_i\le y_i$ for every $i$ implies $f(x)\le f(y)$. Distinct from a potential being monotone under restrictions. |
@@ -25,7 +25,7 @@ D(f)=1+\min_{i\in I}\max_{a\in\{0,1\}}D(f|_{x_i=a}).
 $$
 
 For an address vector $a=(a_0,\ldots,a_{k-1})$,
-$\operatorname{ind}(a)=\sum_j a_j2^j$ selects a datum in a $2^k$-entry array.
+$\mathrm{ind}(a)=\sum_j a_j2^j$ selects a datum in a $2^k$-entry array.
 The symbol $\oplus$ is XOR (addition modulo 2), and $[E]$ is 1 if statement
 $E$ is true and 0 otherwise. **Conditional relevance** means relevance in a
 specified restriction, rather than in the original function.
@@ -75,9 +75,9 @@ $C_0,C_1$; its particular population and multiplicities must be specified.
 - $\lambda(f)$: spectral norm of the adjacency matrix connecting exactly
   the pairs $x,x^i$ with different outputs.
 - A **nondeterministic polynomial** $p$ for $f$ satisfies
-  $p(x)\ne0\iff f(x)=1$. The minimum degree is $\operatorname{ndeg}(f)$;
+  $p(x)\ne0\iff f(x)=1$. The minimum degree is $\mathrm{ndeg}(f)$;
   set this to zero for constants, including the zero polynomial for constant 0.
-- $\operatorname{rdeg}(f)=\min_{p/q=f,\ q(x)\ne0}\max(\deg p,\deg q)$
+- $\mathrm{rdeg}(f)=\min_{p/q=f,\ q(x)\ne0}\max(\deg p,\deg q)$
   on the Boolean cube, with real multilinear $p,q$.
 - $C_{\min}(f)=\min_x C(f,x)$;
   $M^\downarrow(f)=\max_\rho M(f|_\rho)$ is the **restriction closure** of $M$.

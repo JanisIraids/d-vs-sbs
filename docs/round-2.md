@@ -5,7 +5,7 @@ These are local derivations, with no claim of historical novelty. See the [gloss
 **Definition.** Remove the multiplicity from R01:
 $$
 \Phi_2(g)=\left|\bigcup_{b=0}^1\ \bigcup_{P\in\mathcal P_b(g)}
-\operatorname{dom}(P)\right|=r(g),
+\mathrm{dom}(P)\right|=r(g),
 $$
 where $r(g)$ denotes the number of relevant coordinates. An irrelevant
 coordinate cannot occur in a prime certificate, since its literal can be
@@ -19,7 +19,7 @@ parity's multiplicity problem: $\Phi_2(\mathrm{PARITY}_n)=n$.
 
 **Budget failure: proved.** The addressing function is
 $$
-A_k(a,z)=z_{\operatorname{ind}(a)},
+A_k(a,z)=z_{\mathrm{ind}(a)},
 $$
 with $k$ address bits and $2^k$ independent data bits. All $k+2^k$
 coordinates are relevant. At any input a disjoint sensitive-block family has
