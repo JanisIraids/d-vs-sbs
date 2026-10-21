@@ -13,6 +13,11 @@ the total query budget separately. Distinguish a known-input construction from
 one algorithm for an unknown input. Exact bounds and bounds up to a constant
 are different obligations.
 
+Use **input variable** for $`x_i`$ and **variable index** for $`i`$. Define
+each symbol's mathematical type before using it: distinguish an index set
+from a partial assignment on that set. **Fixing** a variable means assigning
+it a specified value.
+
 Start with simple functions and exact small cases, then seek an analytical
 mechanism. Mark each obligation proved, refuted, or tentative with its precise
 remaining lemma. Computation supports a claim only over its stated scope.

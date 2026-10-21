@@ -2,15 +2,17 @@
 
 Definitions are repository conventions unless a source is specified. All functions
 are **total Boolean functions** $`f:\{0,1\}^{I}\to\{0,1\}`$, where $`I`$ is a finite
-coordinate set. A restriction is again total on its remaining coordinates.
+set of variable indices. A restriction is again total on its remaining variables.
 
 ## Inputs, restrictions, and queries
 
 | Term | Definition |
 | --- | --- |
 | $`x^B`$ | Input obtained from $`x`$ by flipping precisely the coordinates in $`B\subseteq I`$; $`x^i=x^{\{i\}}`$. |
-| Literal | A coordinate-value requirement $`x_i=a`$, with $`a\in\{0,1\}`$. |
-| Partial assignment $`\rho`$ | A consistent set of literals on distinct coordinates. Its support $`\mathrm{dom}(\rho)`$ is the set of fixed coordinates. |
+| Literal | A requirement $`x_i=a`$ on an input variable, with $`a\in\{0,1\}`$. |
+| Partial assignment $`\rho`$ | A function $`\rho:A\to\{0,1\}`$ for $`A\subseteq I`$, specifying the literal $`x_i=\rho(i)`$ for each $`i\in A`$. It leaves variables outside $`A`$ unspecified. |
+| Domain / support of a partial assignment | $`\mathrm{dom}(\rho)=A`$, the set of variable indices to which values are assigned, including both 0 and 1 assignments. It is distinct from the assignment $`\rho`$ itself. |
+| Fix an input variable | Assign it a specified value, as in $`x_i=a`$. Restricting a function substitutes those assigned values. |
 | Certificate subcube | The set of all full inputs extending a certificate. |
 | Hamming distance | Number of differing coordinates between two full inputs; for two sets of inputs, the minimum such distance between their members. |
 | Restriction $`f\vert _\rho`$ | Substitute $`\rho`$ and retain the coordinates outside $`\mathrm{dom}(\rho)`$. The empty restriction gives $`f`$. |

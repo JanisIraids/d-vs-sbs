@@ -36,27 +36,57 @@ Here $`\tau`$ is the minimum hitting-set size. The query choices may be fully
 adaptive. If each $`\mathcal F_j`$ contains **all** minimal blocks at $`x_j`$,
 the same argument also forbids eliminating even one block there.
 
-For cyclic translates of one support of size $`q`$ on $`n`$ coordinates,
-each queried coordinate hits $`q`$ of the $`n`$ translates. The bound becomes
+For cyclic translates of one support of size $`q`$ on $`n`$ input variables,
+each queried variable hits $`q`$ of the $`n`$ translates. The bound becomes
 $`\beta(f)\ge\lceil n/q\rceil`$. The analogous incidence argument applies
 to any transitive permutation group preserving the background.
 
 ## Elementary family with an exact batch cost
 
-Choose $`t\ge3`$ and put $`k=3(t-1)`$. For each unordered pair of vertices of
-$`K_t`$, introduce **three Boolean coordinates**. In a pair $`u\lt v`$,
-value 0 favors $`u`$ and value 1 favors $`v`$. Let $`p_v`$ fix all coordinates
-incident to $`v`$ to favor $`v`$, and write $`S_v`$ for its support.
-Define $`g_t=1`$ precisely when some $`p_v`$ is satisfied.
+Choose $`t\ge3`$ and put $`k=3(t-1)`$. Label the vertices of $`K_t`$ by
+$`0,\ldots,t-1`$. For each pair $`a\lt b`$, introduce three input variables
+$`x_{a,b,r}`$, indexed by $`r\in\{0,1,2\}`$. The full set of variable indices is
+
+```math
+I_t=\{(a,b,r):0\le a\lt b\lt t,\ r\in\{0,1,2\}\}.
+```
+
+For each vertex $`v`$, define a **set of variable indices** $`S_v`$ and a
+**partial assignment** $`p_v:S_v\to\{0,1\}`$ by
+
+```math
+S_v=\{(a,b,r)\in I_t:v\in\{a,b\}\},\qquad
+p_v(a,b,r)=
+\begin{cases}
+0,&v=a,\\
+1,&v=b.
+\end{cases}
+```
+
+Thus $`p_v`$ assigns specified values to the variables indexed by $`S_v`$
+and leaves all other variables unspecified. Here $`S_v=\mathrm{dom}(p_v)`$
+is its domain (called its support in the glossary), including indices assigned
+either 0 or 1. A full input satisfies $`p_v`$ when it agrees with every value
+that $`p_v`$ assigns. For $`x\in\{0,1\}^{I_t}`$, define
+
+```math
+g_t(x)=1\quad\Longleftrightarrow\quad
+\exists v\in\{0,\ldots,t-1\}:\ x|_{S_v}=p_v.
+```
+
+For example, when $`t=3`$, $`p_1`$ assigns $`x_{0,1,r}=1`$ and
+$`x_{1,2,r}=0`$ for each $`r\in\{0,1,2\}`$, leaving the three variables
+$`x_{0,2,r}`$ unspecified. The domain $`S_1`$ contains six variable indices;
+the partial assignment $`p_1`$ specifies their six values.
 
 Each $`S_v`$ has size $`k`$. Any two certificates disagree on their three
-shared coordinates, and each coordinate belongs to exactly two supports.
+shared variable indices, and each index belongs to exactly two supports.
 The sets of inputs satisfying different certificates have Hamming distance
 at least 3.
 
 Consequently $`s_0(g_t)=1`$: a 0-input can be one bit from at most one such
 set, with a unique erroneous literal. At a 1-input exactly one certificate
-is satisfied, all its $`k`$ coordinates are sensitive, and every minimal
+is satisfied, all its $`k`$ assigned variables are sensitive, and every minimal
 sensitive block is one of those singletons. Thus $`s_1(g_t)=k`$.
 These elementary separated-certificate facts also appear in
 [S06, Lemmas 3–4](literature.md#sources).
@@ -69,7 +99,7 @@ N=3k\binom{t}{2},\qquad s_0(F_t)=s_1(F_t)=k.
 ```
 
 At a 0-input, sensitivities add across copies. At a 1-input, only a sole
-true copy can contribute sensitive coordinates, giving the stated values.
+true copy can contribute sensitive variables, giving the stated values.
 
 **Adaptive lower bound.** Use the background with triple `001` on every
 edge in every copy; every copy evaluates to 0. If the transcript misses
@@ -77,27 +107,28 @@ some $`S_v`$ in copy $`j`$, impose $`p_v`$ there and leave all other bits
 as in the background. This consistent 1-input has exactly the $`k`$ sensitive
 singletons in that support as its minimal blocks. All remain untouched.
 
-Every copy must therefore have all its vertex supports hit. A coordinate
-hits only two vertices, so at least $`\lceil t/2\rceil`$ queries per copy
+Every copy must therefore have all its vertex supports hit. A query concerns
+only one vertex pair, so at least $`\lceil t/2\rceil`$ queries per copy
 are necessary.
 
 **Matching nonadaptive upper bound.** In each copy choose an edge cover of
-$`K_t`$ with $`\lceil t/2\rceil`$ edges, and query one coordinate per chosen
+$`K_t`$ with $`\lceil t/2\rceil`$ edges, and query one input variable per chosen
 edge. This hits every $`S_v`$.
 
 At any 1-input of $`F_t`$, local block sensitivity is $`k`$: combine the
-$`\ell`$th sensitive coordinate of each true copy into a block, for each
+indices of the $`\ell`$th sensitive variable in each true copy into a block, for each
 $`1\le\ell\le k`$. These $`k`$ blocks are disjoint, and any satisfied
 certificate gives the matching upper bound. After the queries, a satisfied
 certificate has at most $`k-1`$ unqueried literals, so local block sensitivity
 drops.
 
-At a 0-input of $`g_t`$, let $`D_v`$ be the coordinates disagreeing with
-$`p_v`$. The $`t`$ sets $`D_v`$ are nonempty and partition all coordinates:
-the two endpoints demand opposite values on each coordinate. They are
+At a 0-input $`x`$ of $`g_t`$, let
+$`D_v=\{i\in S_v:x_i\ne p_v(i)\}`$. The $`t`$ sets $`D_v`$ are nonempty
+and partition the variable index set:
+the two endpoints demand opposite values for each input variable. They are
 exactly the minimal sensitive blocks, since flipping $`D_v`$ satisfies
 $`p_v`$. Hence every 0-input of $`F_t`$ has $`kt`$ disjoint minimal blocks
-partitioning all coordinates. Any nonempty query set eliminates at least
+partitioning all variable indices. Any nonempty query set eliminates at least
 one, strictly lowering local block sensitivity.
 
 This proves the exact formula
@@ -137,7 +168,7 @@ in this union.
 
 For a monotone function every minimal $`b`$-certificate has size at most
 $`s_b`$: set precisely its required 1s, or dually its required 0s, to obtain
-a sensitivity witness. Complementing input coordinates preserves the
+a sensitivity witness. Complementing input variables preserves the
 conclusion for every **unate** function. Thus
 
 ```math
@@ -151,9 +182,9 @@ cannot be amplified beyond all constants by monotone composition.
 ## Cyclically invariant companion
 
 The mechanism also applies with cyclic symmetry. Chakraborty's pattern
-function has $`n=a^3`$ coordinates, $`a\ge8`$, sensitivity $`\Theta(a)`$,
+function has $`n=a^3`$ input variables, $`a\ge8`$, sensitivity $`\Theta(a)`$,
 and a certificate support $`S`$ of size $`6a-2`$. Its zero-extended witness
-has every support coordinate sensitive, so its minimal blocks are exactly
+has every variable indexed by $`S`$ sensitive, so its minimal blocks are exactly
 those singletons.
 [S07, Section 3, Claim 3.3, pp. 56–57](https://dmtcs.episciences.org/552/pdf#page=6)
 
