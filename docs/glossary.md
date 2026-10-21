@@ -8,21 +8,21 @@ set of variable indices. A restriction is again total on its remaining variables
 
 | Term | Definition |
 | --- | --- |
-| $`x^B`$ | Input obtained from $`x`$ by flipping precisely the coordinates in $`B\subseteq I`$; $`x^i=x^{\{i\}}`$. |
+| $`x^B`$ | Input obtained from $`x`$ by flipping precisely the variables indexed by $`B\subseteq I`$; $`x^i=x^{\{i\}}`$. |
 | Literal | A requirement $`x_i=a`$ on an input variable, with $`a\in\{0,1\}`$. |
 | Partial assignment $`\rho`$ | A function $`\rho:A\to\{0,1\}`$ for $`A\subseteq I`$, specifying the literal $`x_i=\rho(i)`$ for each $`i\in A`$. It leaves variables outside $`A`$ unspecified. |
 | Domain / support of a partial assignment | $`\mathrm{dom}(\rho)=A`$, the set of variable indices to which values are assigned, including both 0 and 1 assignments. It is distinct from the assignment $`\rho`$ itself. |
 | Fix an input variable | Assign it a specified value, as in $`x_i=a`$. Restricting a function substitutes those assigned values. |
 | Certificate subcube | The set of all full inputs extending a certificate. |
-| Hamming distance | Number of differing coordinates between two full inputs; for two sets of inputs, the minimum such distance between their members. |
-| Restriction $`f\vert _\rho`$ | Substitute $`\rho`$ and retain the coordinates outside $`\mathrm{dom}(\rho)`$. The empty restriction gives $`f`$. |
+| Hamming distance | Number of variable indices at which two full inputs differ; for two sets of inputs, the minimum such distance between their members. |
+| Restriction $`f\vert _\rho`$ | Substitute $`\rho`$ and retain the variables indexed outside $`\mathrm{dom}(\rho)`$. The empty restriction gives $`f`$. |
 | Query / branch | A query reveals one previously unqueried $`x_i`$; answer $`a`$ gives the branch $`f\vert _{x_i=a}`$. |
-| Relevant coordinate | $`i`$ such that $`f(x)\ne f(x^i)`$ for some $`x`$. An irrelevant coordinate never changes the output. |
-| $`\mathrm{Rel}(f)`$, $`r(f)`$ | Set of relevant coordinates and its cardinality. The implementation retains their relative order when removing fixed coordinates. |
-| Constant / terminal | A function taking a single value on all its inputs, including a function on no coordinates. Terminal states require no further queries. |
+| Relevant input variable | $`x_i`$ such that $`f(x)\ne f(x^i)`$ for some $`x`$. Flipping an irrelevant variable never changes the output. |
+| $`\mathrm{Rel}(f)`$, $`r(f)`$ | Set of relevant variable indices and its cardinality. The implementation retains their relative order when removing fixed variables. |
+| Constant / terminal | A function taking a single value on all its inputs, including a function on no input variables. Terminal states require no further queries. |
 | $`D(f)`$ | Minimum, over exact deterministic decision trees computing $`f`$, of their maximum number of queries on any input. Constants have $`D=0`$. |
 | Monotone Boolean function | $`x_i\le y_i`$ for every $`i`$ implies $`f(x)\le f(y)`$. Distinct from a potential being monotone under restrictions. |
-| Unate Boolean function | A function that becomes monotone after complementing a fixed subset of input coordinates. |
+| Unate Boolean function | A function that becomes monotone after complementing a fixed subset of input variables. |
 
 For nonconstant $`f`$,
 
@@ -32,28 +32,33 @@ D(f)=1+\min_{i\in I}\max_{a\in\{0,1\}}D(f|_{x_i=a}).
 
 For an address vector $`a=(a_0,\ldots,a_{k-1})`$,
 $`\mathrm{ind}(a)=\sum_j a_j2^j`$ selects a datum in a $`2^k`$-entry array.
+**Standard addressing** is $`A_k(a,z)=z_{\mathrm{ind}(a)}`$, with $`k`$
+address variables and $`2^k`$ data variables. In a **disjoint composition**
+$`f\circ g`$, each input variable of $`f`$ is replaced by the output of a
+separate copy of $`g`$ on disjoint input variables. The notation $`f^{\circ d}`$
+means $`d`$ balanced levels of this composition.
 The symbol $`\oplus`$ is XOR (addition modulo 2), and $`[E]`$ is 1 if statement
 $`E`$ is true and 0 otherwise. **Conditional relevance** means relevance in a
 specified restriction, rather than in the original function.
 **Joint conditional relevance** describes the R03 obstruction: several query
-answers together eliminate coordinates even though every single query has an
-answer retaining all the other relevant coordinates.
+answers together eliminate variables even though every single query has an
+answer retaining all the other relevant variables.
 
-In R03, the **guaranteed relevance loss** of coordinate $`i`$ is
+In R03, the **guaranteed relevance loss** of querying $`x_i`$ is
 $`h_i(g)=r(g)-\max_a r(g|_{i=a})`$. The **relevance-greedy rule** chooses a
-maximizer $`i_*(g)`$, breaking ties by a fixed inherited coordinate order.
+maximizer $`i_*(g)`$, breaking ties by a fixed inherited variable order.
 Its algorithm depth $`\Phi_3`$ uses that rule at every node, without optimizing
 over decision trees. In R01, **certificate multiplicity** is repeated counting
-of the same coordinate across distinct prime certificates.
+of the same input variable across distinct prime certificates.
 
 ## Local and output-specific measures
 
 | Notation / term | Definition |
 | --- | --- |
-| $`s(f,x)`$ | Number of coordinates $`i`$ with $`f(x)\ne f(x^i)`$. |
+| $`s(f,x)`$ | Number of variable indices $`i`$ with $`f(x)\ne f(x^i)`$. |
 | Sensitive block at $`x`$ | Nonempty $`B\subseteq I`$ satisfying $`f(x^B)\ne f(x)`$. |
 | Minimal sensitive block | A sensitive block with no proper sensitive subset at the same input. “Minimal” always means inclusion-minimal, not minimum cardinality. |
-| $`\mathcal B_x(g)`$ | Set of all minimal sensitive blocks of $`g`$ at $`x`$. Fixing coordinates according to $`x`$ retains exactly the blocks disjoint from the fixed coordinates. |
+| $`\mathcal B_x(g)`$ | Set of all minimal sensitive blocks of $`g`$ at $`x`$. Fixing variables according to $`x`$ retains exactly the blocks disjoint from the set of fixed variable indices. |
 | Disjoint block family | Pairwise disjoint sensitive blocks at one fixed input. |
 | Maximal / maximum family | Maximal: no further block can be added while preserving disjointness. Maximum: largest possible number of blocks. |
 | $`bs(f,x)`$ | Size of a maximum disjoint block family at $`x`$. |
@@ -97,6 +102,32 @@ $`C_0,C_1`$; its particular population and multiplicities must be specified.
 
 The last three conventions match [S04](literature.md#sources).
 
+## Amortized candidate accounts
+
+These conventions are used in [R07](round-7.md), [R08](round-8.md), and
+[R10](round-10.md). All accounts and closure measures below are zero on constants.
+Restriction maxima range over nonconstant restrictions and include the empty
+restriction; an empty maximum is zero.
+
+| Notation / term | Definition |
+| --- | --- |
+| Minimal-block packing volume $`W(f)`$ | Maximum of $`\sum_{B\in\mathcal F}\vert B\vert`$ over inputs $`x`$ and disjoint families $`\mathcal F\subseteq\mathcal B_x(f)`$. Distinct from prime-certificate literal mass $`W_b`$. |
+| Capped relevance $`V(f)`$ | $`\min\{r(f),s(f)bs(f)\}`$ in R07 and R09. An account denoted generically by $`V`$ elsewhere must be specified separately. |
+| Raw certificate account $`P_b(f)`$ | $`C_b(f)bs_{1-b}(f)`$, paid by querying a shortest $`b`$-certificate. |
+| $`K_b(f)`$ | Maximum shortest $`b`$-certificate size $`c_b(h)`$ over nonconstant restrictions $`h`$ of $`f`$. Its account is $`K_b(f)bs_{1-b}(f)`$. |
+| Mixed closure $`C_{\min}^{\downarrow}(f)`$ | Maximum of $`c_{\min}(h)=\min\{c_0(h),c_1(h)\}`$ over nonconstant restrictions. The implementation calls this $`K_{\mathrm{mix}}`$; it need not equal $`\min(K_0,K_1)`$. |
+| Mixed progress level $`R(f)`$ | $`bs_0(f)+bs_1(f)-1`$ for nonconstant $`f`$. |
+| One-sided level profile $`w_{b,j}(f)`$ | Maximum $`c_b(h)`$ over nonconstant restrictions with $`bs_{1-b}(h)=j`$; $`j\ge1`$. Its account is $`A_b(f)=\sum_{j=1}^{bs_{1-b}(f)}w_{b,j}(f)`$. |
+| Mixed level profile $`w_{\mathrm{mix},j}(f)`$ | Maximum $`c_{\min}(h)`$ over nonconstant restrictions with $`R(h)=j`$. Its account is $`A_{\mathrm{mix}}(f)=\sum_{j=1}^{R(f)}w_{\mathrm{mix},j}(f)`$. |
+| Batch account | A nonnegative function with a specified batch at each nonconstant state, such that every resulting branch of cost $`t`$ and residual function $`h`$ satisfies $`V(h)\le V(g)-t`$. Constants have account zero. |
+| Unfinished-batch credit | Store the starting account $`B=V(g)`$ and the unprocessed batch. After $`t`$ queries credit is $`B-t`$; completion resets it to $`V(h)\le B-t`$. This is a state potential. |
+| Canonical pruned shortest-certificate algorithm | Choose a shortest certificate of either output, breaking ties by support mask, value mask, then output. Process its variable indices increasingly, skip variables that have become irrelevant, and stop at constants. Otherwise finish the batch before choosing another certificate, even after a mismatch. |
+| $`A_{\mathrm{sc}}(f)`$ | Worst-case query cost of that fixed algorithm. There is no minimization over certificate choices, query orders, or decision trees. Its remaining cost also depends on any unfinished batch. |
+
+Masks encode index sets and assignments in the inherited variable order,
+with the lowest-indexed variable as the least significant bit. The canonical
+rule compares certificate size before the three tie-breaking fields.
+
 ## Progress conditions and evidence status
 
 A **function potential** is a real-valued function $`\Phi(g)`$ of the current
@@ -119,7 +150,7 @@ The **initial budget** is $`s(f)bs(f)`$. If terminal potentials are at least $`L
 each selected query decreases $`\Phi`$ by at least $`\delta>0`$, and
 $`(\Phi(f)-L)/\delta\le s(f)bs(f)`$, telescoping gives the exact target.
 A constant-factor upper bound is recorded separately. A **batch** queries a
-specified set of remaining coordinates at cost equal to its size; all answer
+specified set of remaining input variables at cost equal to its size; all answer
 assignments must satisfy the claimed progress bound. An **adaptive batch**
 is a query tree with a specified stopping condition; its cost is its maximum
 path length. **Amortized accounting**
@@ -127,7 +158,7 @@ allows individual steps without decrease only with an explicit bound on total
 query cost along every root-to-terminal path.
 
 In [R04](round-4.md), a block is **eliminated** at a consistent input when it
-intersects the queried coordinates and hence cannot be flipped within the
+intersects the set of queried variable indices and hence cannot be flipped within the
 restriction. The **block-elimination cost** $`\beta(g)`$ is the least adaptive
 batch cost that eliminates a block from every maximum disjoint family at
 every input. Equivalently, every leaf strictly lowers local block sensitivity
@@ -140,7 +171,7 @@ In [R05](round-5.md), a **hitting set** for a family $`\mathcal S`$ intersects
 every member; its minimum size is the **transversal number** $`\tau(\mathcal S)`$.
 A **background input** is a fixed input whose answers define the adversarial
 transcript. A **witness support** contains both a witness's disagreements with
-that background and every coordinate of its chosen maximum block family.
+that background and every variable index in its chosen maximum block family.
 Missing it preserves both consistency and the whole family.
 
 The **weaker block-elimination task** only requires eliminating some minimal
@@ -164,10 +195,10 @@ number of variables specified by its defining partial assignment.
 
 The **complete graph** $`K_t`$ has $`t`$ vertices and one edge for every
 unordered pair. An **edge cover** selects edges incident to every vertex. A **cyclic translate**
-adds a fixed offset to coordinate indices modulo the input length.
+adds a fixed offset to variable indices modulo the input length.
 A function is **cyclically invariant** if translating the input does not change
-its output. A permutation group is **transitive** if it can send any coordinate
-to any other coordinate.
+its output. A permutation group is **transitive** on a specified index set if
+it can send any variable index in that set to any other.
 
 | Status / failure | Meaning |
 | --- | --- |

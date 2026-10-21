@@ -1,0 +1,486 @@
+{
+  "amplified_certificate_counterexamples": [
+    {
+      "C0_C1_c0_c1_K0_K1_Kmix": 45,
+      "address_bits": 14,
+      "address_certificate_size": 15,
+      "base_table": 7128,
+      "block_sensitivity": 45,
+      "composition_depth": 1,
+      "profile_budget_ratio_denominator": 1350,
+      "profile_budget_ratio_numerator": 1035,
+      "profile_portfolio_lower_bound": 1035,
+      "raw_and_closure_portfolio": 2025,
+      "relevant_variables": 65592,
+      "s_times_bs_budget": 1350,
+      "scope": "Arithmetic evaluation of analytically proved composition and restriction-level formulas; no large truth table or exact algorithm depth computed.",
+      "sensitivity": 30,
+      "shortest_certificate_algorithm_depth_upper_bound": 72
+    },
+    {
+      "C0_C1_c0_c1_K0_K1_Kmix": 171,
+      "address_bits": 18,
+      "address_certificate_size": 19,
+      "base_table": 7128,
+      "block_sensitivity": 171,
+      "composition_depth": 2,
+      "profile_budget_ratio_denominator": 12996,
+      "profile_budget_ratio_numerator": 14706,
+      "profile_portfolio_lower_bound": 14706,
+      "raw_and_closure_portfolio": 29241,
+      "relevant_variables": 4194592,
+      "s_times_bs_budget": 12996,
+      "scope": "Arithmetic evaluation of analytically proved composition and restriction-level formulas; no large truth table or exact algorithm depth computed.",
+      "sensitivity": 76,
+      "shortest_certificate_algorithm_depth_upper_bound": 352
+    },
+    {
+      "C0_C1_c0_c1_K0_K1_Kmix": 2187,
+      "address_bits": 26,
+      "address_certificate_size": 27,
+      "base_table": 7128,
+      "block_sensitivity": 2187,
+      "composition_depth": 4,
+      "profile_budget_ratio_denominator": 944784,
+      "profile_budget_ratio_numerator": 2392578,
+      "profile_portfolio_lower_bound": 2392578,
+      "raw_and_closure_portfolio": 4782969,
+      "relevant_variables": 17179875840,
+      "s_times_bs_budget": 944784,
+      "scope": "Arithmetic evaluation of analytically proved composition and restriction-level formulas; no large truth table or exact algorithm depth computed.",
+      "sensitivity": 432,
+      "shortest_certificate_algorithm_depth_upper_bound": 7680
+    },
+    {
+      "C0_C1_c0_c1_K0_K1_Kmix": 282123,
+      "address_bits": 42,
+      "address_certificate_size": 43,
+      "base_table": 7128,
+      "block_sensitivity": 282123,
+      "composition_depth": 8,
+      "profile_budget_ratio_denominator": 3105609984,
+      "profile_budget_ratio_numerator": 39796834626,
+      "profile_portfolio_lower_bound": 39796834626,
+      "raw_and_closure_portfolio": 79593387129,
+      "relevant_variables": 288230376154464256,
+      "s_times_bs_budget": 3105609984,
+      "scope": "Arithmetic evaluation of analytically proved composition and restriction-level formulas; no large truth table or exact algorithm depth computed.",
+      "sensitivity": 11008,
+      "shortest_certificate_algorithm_depth_upper_bound": 3014656
+    }
+  ],
+  "batch_and_state_account_audit": {
+    "all_checks_passed": true,
+    "certificate_answer_leaves_checked": 4704,
+    "functions_checked": 278,
+    "max_vars": 3,
+    "nonincreasing_resets_checked": 15744,
+    "unit_credit_steps_checked": 32384
+  },
+  "capped_relevance_counterexample": {
+    "block_sensitivity": 14,
+    "budget": 196,
+    "child_relevance": {
+      "address_query": 247,
+      "data_query": 279
+    },
+    "k": 6,
+    "potential_before_and_after_every_query_answer": 196,
+    "relevant_variables": 280,
+    "scope": "Arithmetic evaluation of analytically proved formulas, not truth-table enumeration.",
+    "sensitivity": 14
+  },
+  "closure_examples": [
+    {
+      "closure_K0_K1_Kmix": [
+        2,
+        3,
+        2
+      ],
+      "extremal_s0_s1_bs0_bs1_C0_C1": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "level_profiles": [
+        [
+          0,
+          1,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          1,
+          2,
+          0,
+          2
+        ]
+      ],
+      "policy_depth": 3,
+      "profile_accounts": [
+        3,
+        5,
+        7,
+        6
+      ],
+      "profile_policy_depth": 3,
+      "raw_accounts": [
+        3,
+        9,
+        9
+      ],
+      "refined_accounts": [
+        3,
+        6,
+        9,
+        10
+      ],
+      "shortest_certificate_algorithm_depth": 3,
+      "shortest_certificates": [
+        2,
+        3
+      ],
+      "table": 22,
+      "variables": 3
+    },
+    {
+      "closure_K0_K1_Kmix": [
+        3,
+        3,
+        3
+      ],
+      "extremal_s0_s1_bs0_bs1_C0_C1": [
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "level_profiles": [
+        [
+          0,
+          2,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          1,
+          2,
+          0,
+          3
+        ]
+      ],
+      "policy_depth": 4,
+      "profile_accounts": [
+        4,
+        7,
+        7,
+        7
+      ],
+      "profile_policy_depth": 4,
+      "raw_accounts": [
+        4,
+        9,
+        9
+      ],
+      "refined_accounts": [
+        4,
+        9,
+        9,
+        15
+      ],
+      "shortest_certificate_algorithm_depth": 4,
+      "shortest_certificates": [
+        3,
+        3
+      ],
+      "table": 7128,
+      "variables": 4
+    }
+  ],
+  "finite_budget_audit": {
+    "limitation": "Every audited function has r <= s*bs; portfolio budget success follows already from its relevance account.",
+    "max_vars": 4,
+    "records": [
+      {
+        "functions_checked": 2,
+        "individual_account_budget_failures": {
+          "P0": 0,
+          "P1": 0,
+          "Pmix": 0,
+          "relevance": 0
+        },
+        "profile_portfolio_budget_failures": 0,
+        "raw_portfolio_budget_failures": 0,
+        "refined_portfolio_budget_failures": 0,
+        "relevance_budget_failures": 0,
+        "shortest_certificate_algorithm_budget_failures": 0,
+        "variables": 0
+      },
+      {
+        "functions_checked": 4,
+        "individual_account_budget_failures": {
+          "P0": 0,
+          "P1": 0,
+          "Pmix": 0,
+          "relevance": 0
+        },
+        "profile_portfolio_budget_failures": 0,
+        "raw_portfolio_budget_failures": 0,
+        "refined_portfolio_budget_failures": 0,
+        "relevance_budget_failures": 0,
+        "shortest_certificate_algorithm_budget_failures": 0,
+        "variables": 1
+      },
+      {
+        "functions_checked": 16,
+        "individual_account_budget_failures": {
+          "P0": 0,
+          "P1": 0,
+          "Pmix": 2,
+          "relevance": 0
+        },
+        "profile_portfolio_budget_failures": 0,
+        "raw_portfolio_budget_failures": 0,
+        "refined_portfolio_budget_failures": 0,
+        "relevance_budget_failures": 0,
+        "shortest_certificate_algorithm_budget_failures": 0,
+        "variables": 2
+      },
+      {
+        "functions_checked": 256,
+        "individual_account_budget_failures": {
+          "P0": 0,
+          "P1": 0,
+          "Pmix": 80,
+          "relevance": 0
+        },
+        "profile_portfolio_budget_failures": 0,
+        "raw_portfolio_budget_failures": 0,
+        "refined_portfolio_budget_failures": 0,
+        "relevance_budget_failures": 0,
+        "shortest_certificate_algorithm_budget_failures": 0,
+        "variables": 3
+      },
+      {
+        "functions_checked": 65536,
+        "individual_account_budget_failures": {
+          "P0": 24,
+          "P1": 24,
+          "Pmix": 31342,
+          "relevance": 0
+        },
+        "profile_portfolio_budget_failures": 0,
+        "raw_portfolio_budget_failures": 0,
+        "refined_portfolio_budget_failures": 0,
+        "relevance_budget_failures": 0,
+        "shortest_certificate_algorithm_budget_failures": 0,
+        "variables": 4
+      }
+    ]
+  },
+  "finite_monomial_charge_audit": {
+    "first_fixed_s_charge_failure": {
+      "block_sensitivity": 2,
+      "current_product_charge_passes": true,
+      "degree": 3,
+      "fixed_s_charge_passes": false,
+      "maximum_degree_monomials": [
+        {
+          "guaranteed_bs_drop": 1,
+          "guaranteed_product_drop": 3,
+          "mask": 13
+        },
+        {
+          "guaranteed_bs_drop": 1,
+          "guaranteed_product_drop": 3,
+          "mask": 14
+        }
+      ],
+      "sensitivity": 2,
+      "table": 863,
+      "variables": 4
+    },
+    "max_vars": 4,
+    "records": [
+      {
+        "current_product_charge_failures": 0,
+        "fixed_s_charge_failures": 0,
+        "functions_checked": 2,
+        "variables": 0
+      },
+      {
+        "current_product_charge_failures": 0,
+        "fixed_s_charge_failures": 0,
+        "functions_checked": 4,
+        "variables": 1
+      },
+      {
+        "current_product_charge_failures": 0,
+        "fixed_s_charge_failures": 0,
+        "functions_checked": 16,
+        "variables": 2
+      },
+      {
+        "current_product_charge_failures": 0,
+        "fixed_s_charge_failures": 0,
+        "functions_checked": 256,
+        "variables": 3
+      },
+      {
+        "current_product_charge_failures": 0,
+        "fixed_s_charge_failures": 192,
+        "functions_checked": 65536,
+        "variables": 4
+      }
+    ],
+    "scope": "Existence of a qualifying maximum-degree monomial checked against every assignment; finite success is not a proof for larger functions."
+  },
+  "rounds": [
+    7,
+    8,
+    9,
+    10
+  ],
+  "scope": "Finite exact audits and explicitly labeled analytical formula evaluations.",
+  "separated_pair_monomial_counterexamples": [
+    {
+      "address_bits": 0,
+      "capped_product_charge_fails": false,
+      "capped_relevance_product_drop_on_exhibited_answer": 78,
+      "certificate_size": 13,
+      "copies": 6,
+      "current_product_charge_fails": true,
+      "every_maximum_monomial_size": 78,
+      "product_drop_on_exhibited_answer": 69,
+      "relevant_variables": 138,
+      "residual_relevant_variables": 60,
+      "residual_s_times_bs": 100,
+      "residual_sensitivity_and_block_sensitivity": 10,
+      "s_times_bs": 169,
+      "scope": "Arithmetic evaluation of proved formulas. The exhibited answer for every maximum monomial is analytical, not enumerated on the large function.",
+      "sensitivity_and_block_sensitivity": 13
+    },
+    {
+      "address_bits": 0,
+      "capped_product_charge_fails": false,
+      "capped_relevance_product_drop_on_exhibited_answer": 300,
+      "certificate_size": 25,
+      "copies": 12,
+      "current_product_charge_fails": true,
+      "every_maximum_monomial_size": 300,
+      "product_drop_on_exhibited_answer": 141,
+      "relevant_variables": 564,
+      "residual_relevant_variables": 264,
+      "residual_s_times_bs": 484,
+      "residual_sensitivity_and_block_sensitivity": 22,
+      "s_times_bs": 625,
+      "scope": "Arithmetic evaluation of proved formulas. The exhibited answer for every maximum monomial is analytical, not enumerated on the large function.",
+      "sensitivity_and_block_sensitivity": 25
+    },
+    {
+      "address_bits": 0,
+      "capped_product_charge_fails": false,
+      "capped_relevance_product_drop_on_exhibited_answer": 5050,
+      "certificate_size": 101,
+      "copies": 50,
+      "current_product_charge_fails": true,
+      "every_maximum_monomial_size": 5050,
+      "product_drop_on_exhibited_answer": 597,
+      "relevant_variables": 9950,
+      "residual_relevant_variables": 4900,
+      "residual_s_times_bs": 9604,
+      "residual_sensitivity_and_block_sensitivity": 98,
+      "s_times_bs": 10201,
+      "scope": "Arithmetic evaluation of proved formulas. The exhibited answer for every maximum monomial is analytical, not enumerated on the large function.",
+      "sensitivity_and_block_sensitivity": 101
+    },
+    {
+      "address_bits": 7,
+      "capped_product_charge_fails": true,
+      "capped_relevance_product_drop_on_exhibited_answer": 38208,
+      "certificate_size": 101,
+      "copies": 50,
+      "current_product_charge_fails": true,
+      "every_maximum_monomial_size": 40400,
+      "product_drop_on_exhibited_answer": 38208,
+      "relevant_variables": 1343250,
+      "residual_relevant_variables": 661500,
+      "residual_s_times_bs": 614656,
+      "residual_sensitivity_and_block_sensitivity": 784,
+      "s_times_bs": 652864,
+      "scope": "Arithmetic evaluation of proved formulas. The exhibited answer for every maximum monomial is analytical, not enumerated on the large function.",
+      "sensitivity_and_block_sensitivity": 808
+    }
+  ],
+  "weighted_block_counterexamples": [
+    {
+      "child_weighted_blocks": [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "optimal_depth_audit_only": 3,
+      "table": 232,
+      "variables": 3,
+      "weighted_blocks": 2
+    },
+    {
+      "child_weighted_blocks": [
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "optimal_depth_audit_only": 5,
+      "table": 4276676736,
+      "variables": 5,
+      "weighted_blocks": 4
+    }
+  ]
+}

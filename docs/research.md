@@ -54,7 +54,7 @@ inequalities $`s_b\le bs_b\le C_b`$ give equality. The representing multilinear
 polynomial has a nonzero monomial containing all $`mk`$ variables, so
 $`D\ge\deg=mk`$; querying all variables matches this.
 
-Fixing **any** coordinate to 1 leaves all terms nonempty and an untouched
+Fixing **any** input variable to 1 leaves all terms nonempty and an untouched
 length-$`k`$ term. The same certificate and sensitivity witnesses show that
 all six maxima are preserved.
 
@@ -88,7 +88,7 @@ was chosen.
 
 The baseline audit exhaustively enumerates all truth tables through four
 variables, including constants and functions with irrelevant displayed
-coordinates. It checks the initial budget, P01, and the independent diagnostic
+variables. It checks the initial budget, P01, and the independent diagnostic
 $`D>\Phi`$, separately. It saves a first counterexample and both successor
 values for every relevant query.
 
@@ -107,26 +107,30 @@ B01, F01, and F02 above are analytical proofs.
 | Round | Refinement | Disposition |
 | --- | --- | --- |
 | [R01](round-1.md) | Count prime-certificate literals instead of maxima | Progress proved; parity gives unbounded budget excess |
-| [R02](round-2.md) | Count each relevant coordinate once | Progress proved; addressing gives unbounded budget excess |
+| [R02](round-2.md) | Count each relevant variable once | Progress proved; addressing gives unbounded budget excess |
 | [R03](round-3.md) | Query for guaranteed relevance loss, then count that algorithm's depth | Progress proved; two independent selectors defeat the fixed tie rule |
 | [R04](round-4.md) | Eliminate a block from every maximum family at every input within $`s`$ adaptive queries | Refuted: exact cost $`m+k-1>s`$ on disjoint AND–OR |
 | [R05](round-5.md) | Allow any constant multiple of $`s`$ for block elimination | Refuted: exact family cost $`s\lceil t/2\rceil=\Theta(s^2)`$; quadratic is optimal |
 | [R06](round-6.md) | Require progress only at inputs attaining global $`bs`$ | Refuted: separated certificate subcubes give $`\beta_{\max}=\Theta(s^2)`$ even with $`bs=s`$ |
+| [R07](round-7.md) | Weight minimal blocks by size; cap relevance by $`s\,bs`$ | Majority refutes the volume range; addressed redundancy refutes single-query progress of the cap |
+| [R08](round-8.md) | Charge certificate batches using maxima, restriction closures, or level profiles | Progress proved; explicit compositions give unbounded budget excess even with relevance capping |
+| [R09](round-9.md) | Pay full maximum-degree monomials from actual product decrease | Refuted with unbounded loss for every monomial, including the relevance-capped product |
+| [R10](round-10.md) | Count only executed queries of a fixed pruned shortest-certificate procedure | Tentative; general budget missing, positive bounds for the new obstruction families |
 
-Each round states its exact definition, an analytical failure mechanism, finite
-checks, and reproduction commands. The initial baseline contains 65,814
+Each round states its exact definition, proved claims or remaining obligation,
+finite checks, and reproduction commands. The initial baseline contains 65,814
 functions; none violates T01. This does not prove T01 outside that finite set.
 
-## First milestone conclusions
+## First milestone conclusions (R01–R03)
 
-The baseline and all three new rounds are complete. None establishes T01;
+The baseline and R01–R03 are complete. None establishes T01;
 none remains an untested or tentative candidate. R01–R03 each has a complete
 progress proof and an unbounded family of budget failures. The [final scheme
 review](round-3.md#final-scheme-review-and-next-obligation) proposes costed batches
 or explicit algorithmic state, with a precise missing accounting lemma.
 
-The next priority is a candidate that shares charges across certificates while
-recognizing relevance eliminated by several answers together. A new scalar
+This motivated sharing charges across certificates while recognizing relevance
+eliminated by several answers together, developed in R07–R10 below. A new scalar
 combination of the six maxima is already excluded by F01. Changing the greedy
 tie rule alone requires fresh evaluation; the R03 proof refutes only the
 stated rule, not all relevance-based algorithms.
@@ -202,3 +206,66 @@ target conjecture holds for them by querying all variables. What fails is
 the demand for a global $`bs`$ decrease within every $`O(s)`$ batch. A viable
 scheme must account for unequal costs or larger decreases, or change its
 progress measure; no such general accounting lemma is established here.
+
+## Amortized accounts: progress and budget separate
+
+**F06: packing volume has insufficient range (proved).**
+[R07](round-7.md) weights each block in a disjoint minimal-block family by
+its size. Its maximum volume $`W`$ is restriction-monotone and at most
+$`s\,bs`$, but odd majority has $`W=n-1\lt D=n`$. This rules out even
+amortized telescoping from that initial credit. The repair
+$`\min\{r,s\,bs\}`$ instead fails single-query progress on four addressing
+gadgets arranged as disjoint AND–OR: redundancy preserves all six maxima
+and relevance remains above the cap on every answer.
+
+**P02: certificate batches give valid accounts (proved).** Querying a
+$`b`$-certificate lowers $`bs_{1-b}`$ on every nonconstant leaf. Thus
+$`C_bbs_{1-b}`$ pays its cost. [R08](round-8.md) improves this account by
+using the restriction maximum $`K_b`$ of the shortest certificate size
+$`c_b`$, and then by summing separate charges $`w_{b,j}`$ for attainable
+opposite-side block-sensitivity levels. Mixed-output accounts and minima
+with relevance also pay for their prescribed batches.
+
+Store the chosen account at batch start, subtract one per query, then reset
+to the residual account at completion. The batch inequality makes this reset
+nonincreasing. This is explicit unit progress on algorithmic state, with
+unfinished batches included. Moreover, the ordinary one-sided account proves
+T01 for **every R06 separated-subcube family**, since $`C_1bs_0=qmb\lt q^2`$.
+
+**F07: reserving a payment at every level overcounts (proved).** Let
+$`G`$ be Savický's four-variable function with pointwise $`s=2`$ and
+$`bs=C=3`$. For disjoint composition
+$`F_{d,k}=G^{\circ d}\circ A_k`$, put $`q=k+1`$ and $`T=q3^d`$. Then
+$`s=q2^d`$, while every input has $`bs=C=T`$. Every integer level from
+zero to $`T`$ is attained by a restriction with uniform certificate complexity
+and block sensitivity. Consequently all three certificate profiles are at
+least $`T(T+1)/2`$.
+
+Taking $`k=4d+10`$ also makes relevance exceed $`T^2`$. The minimum of
+the ordinary, closure, and profile accounts and relevance exceeds the target
+by a factor at least $`\tfrac12(3/2)^d`$. A batch can skip many levels;
+charging separately for all of them overcounts even when those levels are
+attainable. This refutes the accounts' budgets, not all certificate algorithms.
+
+**F08: full monomial batches query newly irrelevant variables (proved).**
+[R09](round-9.md) uses pairs of $`q`$-literal certificates disagreeing on
+three shared variables, followed by OR composition. Every maximum-degree
+monomial has a branch costing $`mq`$ while the product decreases by only
+$`6q-9`$, with $`m=\lfloor(q-1)/2\rfloor`$. Fixed addressing substitution
+preserves the unbounded loss for the relevance-capped product. The proof
+covers every monomial tie rule and adaptive choices between full batches;
+it does not cover pruning inside a batch.
+
+**PS06: charge executed costs and skipped levels.**
+[R10](round-10.md) specifies a fixed shortest-certificate algorithm that
+skips newly irrelevant queries. Its remaining cost is a state potential.
+For any outer function on $`n`$ logical variables, addressing substitution
+has algorithm cost at most $`n(k+4)`$, independently of certificate ties.
+This proves T01 for the new account-obstruction families under that procedure.
+The general bound $`A_{\mathrm{sc}}\le s\,bs`$ remains **tentative**.
+
+The [new audit](../evidence/amortized-witnesses.json) verifies certificate
+batch and state inequalities through three variables and budget/monomial
+claims through four. Every function in the latter set already has
+$`r\le s\,bs`$, so its positive budget results are weak evidence. The
+unbounded counterexamples rely on the analytical proofs, not enumeration.

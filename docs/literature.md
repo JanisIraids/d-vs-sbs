@@ -1,7 +1,8 @@
 # Literature baseline
 
-Checked against the linked full texts on **2026-10-20**. Page numbers below are
-the papers' printed pages. All claims concern total Boolean functions unless
+The initial sources were checked against the linked full texts on **2026-10-20**;
+S08–S09 were added and checked on **2026-10-21**. Page numbers below are the
+papers' printed pages. All claims concern total Boolean functions unless
 stated otherwise; notation follows the [glossary](glossary.md).
 
 The exact target $`D(f)\le s(f)bs(f)`$ and its description as folklore are
@@ -151,6 +152,49 @@ adaptive-query lower bounds through hitting sets. The exact star-family
 formula and the cyclic $`\Omega(s^2)`$ block-elimination lower bound are
 derived here; they are not statements attributed to S06 or S07.
 
+### L09 — Amortizing shortest-certificate queries
+
+**Published:** S08, Lemma 6 and its proof in Section 5, pp. 27:13–27:14,
+repeatedly query a shortest certificate of the current restriction, allowing
+either output. The proof establishes
+
+```math
+D(f)\le C_{\min}^{\downarrow}(f)\bigl(bs_0(f)+bs_1(f)\bigr)
+\le2C_{\min}^{\downarrow}(f)bs(f).
+```
+
+The paper writes $`C_{\min}^{*}`$ for our restriction closure
+$`C_{\min}^{\downarrow}`$. Each certificate batch removes an opposite-output
+sensitive block, controlling the number of batches of each output.
+[S08](https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.27/LIPIcs.FSTTCS.2023.27.pdf#page=13)
+
+**Local refinements:** [R08](round-8.md) uses the progress index
+$`bs_0+bs_1-1`$, keeps separate shortest-certificate costs at different
+block-sensitivity levels, and converts batch accounts to unit-query state
+credit. These refinements are derived here. Neither the published bound nor
+these accounts establish the target budget; R08 gives an unbounded obstruction.
+
+### L10 — A recursively composed family with uniform local parameters
+
+**Published:** S09, Example 2.9, p. 7, defines
+
+```math
+\alpha_2(x_1,x_2,x_3,x_4)
+=(x_1\oplus x_2)(x_3\oplus x_4)\oplus x_2\oplus x_4.
+```
+
+Lemma 3.13, p. 20, gives composition bounds for sensitivity, block sensitivity,
+and certificate complexity. Theorem 3.14, p. 21, applies them to the balanced
+$`d`$-fold composition on $`4^d`$ variables, obtaining $`s=2^d`$ and
+$`bs=C=3^d`$. These local parameters are uniform over inputs.
+[S09](https://eccc.weizmann.ac.il/report/2013/191/revision/2/download/#page=21)
+
+**New use in this repository:** R08's $`G(u,a,b,v)`$ equals
+$`\alpha_2(u,v,a,b)`$. Its addressing substitution, restrictions realizing
+every intermediate certificate/block-sensitivity level, and the resulting
+failure of certificate-profile budgets are local derivations, not statements
+attributed to S09.
+
 ## What the baseline requires of new candidates
 
 - Check the initial budget, terminal bound, and both answers to the selected
@@ -177,6 +221,8 @@ published theorems.
 | S05 | Buhrman, de Wolf, *Complexity Measures and Decision Tree Complexity: A Survey*, [author-hosted manuscript](https://homepages.cwi.nl/~rdewolf/publ/qc/dectree.pdf), dated 2002-10-10; Theorem 2, p. 10, and Corollary 2 / Open problem 2, p. 16. Used for its reproduced arguments and explicit historical statements. |
 | S06 | Chaubal, Gál, *New Constructions with Quadratic Separation between Sensitivity and Block Sensitivity*, [ECCC TR18-205](https://eccc.weizmann.ac.il/report/2018/205/download/), 2018; Lemmas 3–4, pp. 7, 9. |
 | S07 | Chakraborty, *On the sensitivity of cyclically-invariant Boolean functions*, [DMTCS 13:4 (2011), 51–60](https://dmtcs.episciences.org/552/pdf); Section 3, Claim 3.3, pp. 56–57. |
+| S08 | Chugh, Podder, Sanyal, *Decision Tree Complexity Versus Block Sensitivity and Degree*, [FSTTCS 2023, Article 27](https://drops.dagstuhl.de/storage/00lipics/lipics-vol284-fsttcs2023/LIPIcs.FSTTCS.2023.27/LIPIcs.FSTTCS.2023.27.pdf); Lemma 6 and Section 5, pp. 27:13–27:14. |
+| S09 | Savický, *Boolean functions with a vertex-transitive group of automorphisms*, [ECCC TR13-191 revision 2](https://eccc.weizmann.ac.il/report/2013/191/revision/2/download/), [2015-05-14](https://eccc.weizmann.ac.il/report/2013/191/); Example 2.9, p. 7; Lemma 3.13, p. 20; Theorem 3.14, p. 21. |
 
 The search covered these sources and targeted queries for the exact target,
 including `"D(f)" "s(f)bs(f)" conjecture` and

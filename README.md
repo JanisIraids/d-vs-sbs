@@ -1,8 +1,8 @@
 # Deterministic queries versus sensitivity × block sensitivity
 
 Research target: $`D(f)\le s(f)\,bs(f)`$ for every **total** Boolean function.
-We seek independently defined progress measures with a sufficient initial
-budget and a query that decreases the measure on **both** answers.
+We seek independently defined progress measures or amortized query procedures
+whose total cost on **every** path is at most that budget.
 
 ## Current conclusions
 
@@ -10,41 +10,33 @@ budget and a query that decreases the measure on **both** answers.
 | --- | --- | --- |
 | $`bs_0+bs_1`$ | Refuted as a unit-progress potential | Preserved maxima; also insufficient range |
 | $`bs,\ bs_0bs_1,\ s\,bs,\ C_0C_1`$ | Refuted as single-query potentials | Preserved maxima |
-| [Prime-certificate literal mass](docs/round-1.md) | Progress proved; budget refuted | Repeated coordinates across many certificates |
-| [Relevant-coordinate count](docs/round-2.md) | Progress proved; budget refuted | Adds mutually exclusive future possibilities |
+| [Prime-certificate literal mass](docs/round-1.md) | Progress proved; budget refuted | Repeated variables across many certificates |
+| [Relevant-variable count](docs/round-2.md) | Progress proved; budget refuted | Adds mutually exclusive future possibilities |
 | [Fixed relevance-greedy depth](docs/round-3.md) | Progress proved; budget refuted | Misses relevance eliminated by several answers together |
 | [Block elimination in at most $`s`$ adaptive queries](docs/round-4.md) | Refuted | Simultaneous local progress costs $`m+k-1`$ on disjoint AND–OR |
 | [Block elimination in $`O(s)`$ adaptive queries](docs/round-5.md) | Refuted; quadratic cost is optimal in order | Untouched witness supports force $`\Theta(s^2)`$ queries |
 | [Global $`bs`$ decrease in $`O(s)`$ adaptive queries](docs/round-6.md) | Refuted even when $`bs=s`$ | Distant certificate subcubes with hard-to-hit supports force $`\Theta(s^2)`$ queries |
+| [Minimal-block packing volume; capped relevance](docs/round-7.md) | Range failure; single-query progress failure | Majority has too little volume; addressing keeps the relevance cap inactive |
+| [Certificate products and restriction-level profiles](docs/round-8.md) | Amortized progress proved; budgets refuted | Reserving a certificate payment at every level overcounts levels that batches skip |
+| [Full maximum-degree monomial batches](docs/round-9.md) | Product-decrease charge refuted with unbounded loss | Every monomial has a branch making many planned queries irrelevant |
+| [Pruned shortest-certificate procedure](docs/round-10.md) | **Tentative:** general budget unproved | Counts actual executed queries; proved to handle the new counterexample families |
 
 For an OR of disjoint ANDs, every query has a 1-answer preserving
 $`(s_0,s_1,bs_0,bs_1,C_0,C_1)`$. This rules out **every** potential depending
 only on those six maxima. It does not refute the target conjecture.
 
-The three new candidates respectively fail on parity ($`12>9`$), addressing
-($`37>36`$), and two independent selectors ($`530>400`$). Each has a complete
-progress proof and an unbounded family of budget failures; the conjecture
-remains unresolved.
+The latest rounds distinguish **valid progress from an adequate initial
+budget**. Certificate accounts pay for complete batches and supply a state
+potential decreasing at every query. They prove the target for the entire
+R06 separated-subcube family. However, an explicit composition family makes
+even refined certificate profiles exceed $`s\,bs`$ by an unbounded factor.
 
-The proposed block-elimination batch already fails on
-$`(x_0\land x_1)\lor(x_2\land x_3)`$: sensitivity is 2, but three adaptive
-queries are necessary. On the balanced disjoint AND–OR family, unequal
-batch costs can still sum to the exact $`s\,bs`$ budget; see
-[R04](docs/round-4.md) for the proof and amortization.
-
-The stronger [R05 result](docs/round-5.md) rules out **every constant multiple**
-of sensitivity: an explicit family has $`s=3(t-1)`$ and exact elimination
-cost $`s\lceil t/2\rceil`$. Even eliminating any one minimal block can require
-quadratically many queries. The general upper bound is $`\beta\le s^2`$.
-This concerns local progress at every input; on this family global block
-sensitivity drops after any single query.
-
-[R06](docs/round-6.md) addresses that weaker condition directly. Requiring
-local decrease only at inputs attaining global $`bs`$ is equivalent to
-lowering global $`bs`$ at every leaf. A probabilistic construction proves
-that this too can cost $`\Theta(s^2)`$ adaptive deterministic queries, even
-when $`s=bs`$. These functions satisfy the target conjecture; the obstruction
-is to a uniformly linear cost for each decrease, not to amortized accounting.
+Charging the full size of a maximum-degree monomial to the decrease in
+$`\min\{r,s\,bs\}`$ also fails with unbounded loss, for every monomial
+choice. That failure concerns full batches; skipping newly irrelevant
+variables remains viable. R10 specifies one such shortest-certificate
+procedure and proves it meets the target on both new counterexample families.
+The universal inequality for its actual query cost is **unproved**.
 
 ## Reading and reproduction
 
@@ -59,6 +51,7 @@ Python 3.10 or later, standard library only:
 ```sh
 python3 -m unittest discover -s tests
 python3 -m scripts.audit --max-vars 4 --output evidence/baseline.json
+python3 -m scripts.amortized --output evidence/amortized-witnesses.json
 ```
 
 Each round links its exact reproduction commands and evidence. The baseline
@@ -68,8 +61,8 @@ but fail on the larger proved families. Unit tests check the exact engine and
 candidate semantics. Large-family evidence distinguishes direct witness checks from
 analytical upper bounds.
 
-Truth table bit $`x`$ is $`f(x)`$, where $`x=\sum_i x_i2^i`$. Coordinates are
-zero-based; restrictions remove a coordinate and renumber in ascending order.
+Truth table bit $`x`$ is $`f(x)`$, where $`x=\sum_i x_i2^i`$. Variable indices
+are zero-based; restrictions remove an input variable and renumber in ascending order.
 Exact $`D`$ is computed only for validation, never used to define a candidate.
 
 ## Research workflow
@@ -82,10 +75,8 @@ extract a general mechanism, quantify exact versus asymptotic losses, test
 adaptivity and weaker obligations, and establish boundaries or matching upper
 bounds. See the [workflow](docs/workflow.md). Review the proof scheme periodically.
 
-The initial milestone—literature, simple candidates, and three further
-rounds—is complete. Next priority: share certificate charges while accounting
-for relevance eliminated by several queries. See the
-[proof-scheme review](docs/round-3.md#final-scheme-review-and-next-obligation)
-for batch/state proposals and the missing universal lemma, and
-[R04](docs/round-4.md#consequence-for-the-proof-scheme) for the new obstruction
-to a fixed per-batch sensitivity bound.
+Next priority: prove or refute the [R10 actual-cost budget](docs/round-10.md).
+Seek examples with $`r\gt s\,bs`$ where successive shortest certificates expose
+fresh variables without enough compensating progress. Track skipped levels
+and irrelevant variables explicitly; an independent maximum payment at every
+possible block-sensitivity level is already ruled out by R08.
