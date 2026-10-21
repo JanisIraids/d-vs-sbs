@@ -111,6 +111,7 @@ B01, F01, and F02 above are analytical proofs.
 | [R03](round-3.md) | Query for guaranteed relevance loss, then count that algorithm's depth | Progress proved; two independent selectors defeat the fixed tie rule |
 | [R04](round-4.md) | Eliminate a block from every maximum family at every input within $`s`$ adaptive queries | Refuted: exact cost $`m+k-1>s`$ on disjoint AND–OR |
 | [R05](round-5.md) | Allow any constant multiple of $`s`$ for block elimination | Refuted: exact family cost $`s\lceil t/2\rceil=\Theta(s^2)`$; quadratic is optimal |
+| [R06](round-6.md) | Require progress only at inputs attaining global $`bs`$ | Refuted: separated certificate subcubes give $`\beta_{\max}=\Theta(s^2)`$ even with $`bs=s`$ |
 
 Each round states its exact definition, an analytical failure mechanism, finite
 checks, and reproduction commands. The initial baseline contains 65,814
@@ -167,4 +168,37 @@ class, and cannot refute $`O(s)`$ by monotone amplification.
 **PS04: reconsider which inputs require progress.** The elementary quadratic
 example nevertheless lowers global $`bs`$ after any single query. Its failure
 therefore isolates the simultaneous local requirement. A global-progress
-scheme or an amortized account remains a separate, unproved direction.
+scheme is a separate question, addressed by R06 below; an amortized account
+remains an unproved direction.
+
+## Global-maximum progress also has quadratic cost
+
+**F05: distant certificates with hard-to-hit supports (proved).**
+[R06](round-6.md) proves that progress only at original block-sensitivity
+maximizers is exactly global $`bs`$ decrease. A probabilistic family still
+requires $`\Theta(s^2)`$ adaptive deterministic queries for one such decrease.
+
+The general mechanism is exact. Let $`g`$ accept the union of certificate
+subcubes of common codimension $`q`$, pairwise distance at least three.
+Let $`\tau`$ be the transversal number of their supports and $`b=bs_0(g)`$.
+For $`mb\lt q`$, the OR of $`m`$ disjoint copies satisfies
+
+```math
+s(F)=bs(F)=q,\qquad \beta_{\max}(F)=m\tau.
+```
+
+Linear distance between these subcubes bounds $`b`$ by a constant. Exponentially
+many random partial assignments with half their variables specified have that
+distance and $`\tau=\Omega(q)`$ simultaneously. Taking $`m=\Theta(q)`$
+makes the hard 1-inputs global maximizers and gives the quadratic lower bound.
+This escapes R05's obstruction, where $`b`$ grew with the support transversal.
+The existence proof, including explicit probability bounds, is independent of
+the finite checks. No historical novelty or bounded-error randomized lower
+bound is claimed.
+
+**PS05: global progress still requires amortization or another measure.**
+The constructed functions have only $`s\,bs/32`$ input variables, so the
+target conjecture holds for them by querying all variables. What fails is
+the demand for a global $`bs`$ decrease within every $`O(s)`$ batch. A viable
+scheme must account for unequal costs or larger decreases, or change its
+progress measure; no such general accounting lemma is established here.

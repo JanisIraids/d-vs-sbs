@@ -15,6 +15,7 @@ budget and a query that decreases the measure on **both** answers.
 | [Fixed relevance-greedy depth](docs/round-3.md) | Progress proved; budget refuted | Misses relevance eliminated by several answers together |
 | [Block elimination in at most $`s`$ adaptive queries](docs/round-4.md) | Refuted | Simultaneous local progress costs $`m+k-1`$ on disjoint AND–OR |
 | [Block elimination in $`O(s)`$ adaptive queries](docs/round-5.md) | Refuted; quadratic cost is optimal in order | Untouched witness supports force $`\Theta(s^2)`$ queries |
+| [Global $`bs`$ decrease in $`O(s)`$ adaptive queries](docs/round-6.md) | Refuted even when $`bs=s`$ | Distant certificate subcubes with hard-to-hit supports force $`\Theta(s^2)`$ queries |
 
 For an OR of disjoint ANDs, every query has a 1-answer preserving
 $`(s_0,s_1,bs_0,bs_1,C_0,C_1)`$. This rules out **every** potential depending
@@ -37,6 +38,13 @@ cost $`s\lceil t/2\rceil`$. Even eliminating any one minimal block can require
 quadratically many queries. The general upper bound is $`\beta\le s^2`$.
 This concerns local progress at every input; on this family global block
 sensitivity drops after any single query.
+
+[R06](docs/round-6.md) addresses that weaker condition directly. Requiring
+local decrease only at inputs attaining global $`bs`$ is equivalent to
+lowering global $`bs`$ at every leaf. A probabilistic construction proves
+that this too can cost $`\Theta(s^2)`$ adaptive deterministic queries, even
+when $`s=bs`$. These functions satisfy the target conjecture; the obstruction
+is to a uniformly linear cost for each decrease, not to amortized accounting.
 
 ## Reading and reproduction
 

@@ -151,6 +151,17 @@ have only one maximum family and that family contains all minimal blocks.
 to have smaller $`bs`$ than the original function; it need not reduce local
 block sensitivity at every input.
 
+In [R06](round-6.md), the **global block-sensitivity decrease cost**
+$`\beta_{\max}(f)`$ is the minimum worst-case depth of a deterministic adaptive
+query tree whose every leaf $`\rho`$ has $`bs(f\vert_\rho)\lt bs(f)`$.
+Equivalently, only consistent inputs with original $`bs(f,x)=bs(f)`$ must
+have their local block sensitivity decrease. Constants have
+$`\beta_{\max}=0`$, and $`\beta_{\max}\le\beta`$. Two partial assignments
+**conflict** at an index if both specify it and assign opposite values;
+their number of conflicts equals the minimum Hamming distance between their
+satisfying subcubes. The **codimension** of a certificate subcube is the
+number of variables specified by its defining partial assignment.
+
 The **complete graph** $`K_t`$ has $`t`$ vertices and one edge for every
 unordered pair. An **edge cover** selects edges incident to every vertex. A **cyclic translate**
 adds a fixed offset to coordinate indices modulo the input length.

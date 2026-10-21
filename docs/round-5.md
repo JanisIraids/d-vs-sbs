@@ -148,6 +148,8 @@ Any single query strictly lowers the **global** maximum block sensitivity
 on both answers: it destroys one of the partition blocks at every 0-input,
 and $`k\lt kt-1`$. Thus this quadratic obstruction does not refute a
 batch scheme requiring only global-maximum progress.
+[R06](round-6.md) refutes that weaker scheme using a different certificate
+family whose hard inputs attain the global maximum.
 
 ## Upper bounds and the limit of the old obstruction
 
@@ -218,6 +220,8 @@ success for all completions of the resulting leaf can only be stronger.
 the entire quadratic sensitivity budget. Further candidates should examine
 global-maximum progress or amortized costs, and must prove their own bounds.
 This result does not settle either alternative or T01.
+[R06](round-6.md) subsequently gives a quadratic obstruction to global
+progress too; amortized accounting remains a separate obligation.
 
 ## Verification
 

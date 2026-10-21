@@ -1,0 +1,99 @@
+{
+  "finite_certificate_families": [
+    {
+      "bs": 3,
+      "certificate_masks_and_values": [
+        [
+          7,
+          7
+        ]
+      ],
+      "certificate_size": 3,
+      "computed_global_drop_depth": 2,
+      "copies": 2,
+      "formula_global_drop_depth": 2,
+      "inner_bs0": 1,
+      "inner_variables": 3,
+      "minimum_pair_conflicts": null,
+      "name": "OR of two three-bit ANDs",
+      "planted_maximum_inputs_checked": 2,
+      "s0": 2,
+      "s1": 3,
+      "support_hitting_number": 1
+    },
+    {
+      "bs": 3,
+      "certificate_masks_and_values": [
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          7
+        ]
+      ],
+      "certificate_size": 3,
+      "computed_global_drop_depth": 1,
+      "copies": 1,
+      "formula_global_drop_depth": 1,
+      "inner_bs0": 2,
+      "inner_variables": 3,
+      "minimum_pair_conflicts": 3,
+      "name": "Two opposite three-bit assignments",
+      "planted_maximum_inputs_checked": 2,
+      "s0": 1,
+      "s1": 3,
+      "support_hitting_number": 1
+    },
+    {
+      "bs": 6,
+      "certificate_masks_and_values": [
+        [
+          63,
+          0
+        ],
+        [
+          455,
+          7
+        ],
+        [
+          504,
+          504
+        ]
+      ],
+      "certificate_size": 6,
+      "computed_global_drop_depth": 2,
+      "copies": 1,
+      "formula_global_drop_depth": 2,
+      "inner_bs0": 3,
+      "inner_variables": 9,
+      "minimum_pair_conflicts": 3,
+      "name": "Three-vertex star gadget",
+      "planted_maximum_inputs_checked": 3,
+      "s0": 1,
+      "s1": 6,
+      "support_hitting_number": 2
+    }
+  ],
+  "maximum_input_equivalence": {
+    "all_comparisons_passed": true,
+    "functions_checked": 278,
+    "max_vars": 3,
+    "partial_assignments_checked": 7070
+  },
+  "probability_bound_check": {
+    "conflict_failure_log_upper_bound": -3059.523346935231,
+    "copies": 2048,
+    "coverage_failure_below_exp_minus_one": true,
+    "global_drop_depth_lower_bound": 133120,
+    "h": 64,
+    "n": 262144,
+    "q": 131072,
+    "scope": "Numerical checks of analytical bounds; no random family sampled.",
+    "sensitivity": 131072,
+    "sum_of_failure_bounds_below_one": true
+  },
+  "round": 6,
+  "scope": "Exact small checks and numerical probability bounds, not a finite proof of the asymptotic theorem."
+}
